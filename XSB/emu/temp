@@ -1,0 +1,21 @@
+/*
+void abolish_table_call_nocheck(CTXTdeclc VariantSF subgoal) {
+
+#ifdef DEBUG_ABOLISH
+  printf("abolish_table_call_nocheck called (%p): ",subgoal); print_subgoal(CTXTc stddbg, subgoal); printf("\n");
+#endif
+
+  if (IsVariantSF(subgoal) 
+      &&  (varsf_has_conditional_answer(subgoal) 
+             && (invocation_flag == ABOLISH_TABLES_TRANSITIVELY 
+   	          || !(invocation_flag == ABOLISH_TABLES_DEFAULT 
+		       && flags[TABLE_GC_ACTION] == ABOLISH_TABLES_SINGLY)))) {
+    abolish_dbg(("calling atc_t_nocheck\n"));
+    abolish_table_call_transitive(CTXTc subgoal);
+    }
+  else {
+    abolish_dbg(("calling atc_s_nocheck\n"));
+    abolish_table_call_single_nocheck(CTXTc subgoal);
+  }
+}
+*/

@@ -1,0 +1,241 @@
+
+
+            INSTALLATION SUMMARY
+            --------------------
+
+XSB Version:	   3.6.
+Code name:	   Gazpatcho
+Release date:	   2015-04-28
+Configuration:	   i386-apple-darwin15.0.0
+Installation date: Fri Apr  1 23:11:43 CEST 2016
+
+  Build process is looking for XSB sources in:	  /Users/Saint/Code/XSB
+  XSB should be installed in:			  /Users/Saint/Code/XSB
+  Configuration-specific executables go in:	  /Users/Saint/Code/XSB/config/i386-apple-darwin15.0.0/bin
+  Configuration-specific libraries go in:	  /Users/Saint/Code/XSB/config/i386-apple-darwin15.0.0/lib
+  Object code goes in:				  /Users/Saint/Code/XSB/config/i386-apple-darwin15.0.0/saved.o
+  Site-specific code goes in:			  /Users/Saint/Code/XSB/site
+  Site configuration-specific code goes in:	  /Users/Saint/Code/XSB/site/config/i386-apple-darwin15.0.0
+  XSB will be built with:			  gcc  -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+  builtin.c will be built with: 		  gcc  -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+  loader_xsb.c will be built with: 		  gcc  -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+  emuloop.c will be built with: 		  gcc  -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+  tr_utils.c will be built with:		  gcc  -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+  Loader flags: 				  -lm
+  Compilation mode:				  optimal
+  XSB abstract machine: 			  slg-wam
+  XSB scheduling strategy:			  local
+  Garbage Collection Stress-Test:		  no
+  Jumptable-based emulator loop:		  yes
+  Demand support:                                 no
+
+  Support for modular database drivers: 	  no
+  -- These drivers can also be configured later.
+  Native support for Oracle:			  no
+  Support for the old ODBC driver:		  no
+
+  Java compiler:                                  /usr/bin/javac
+  Support for InterProlog's native engine:   	  no
+  -- JDK may not have been installed or
+  -- JAVA_HOME not set. You will still be able
+  -- to use InterProlog's subprocess engine.
+
+  POSIX regexp matching libraries:                yes
+  POSIX wildcard matching libraries:              yes
+
+  Curl support (HTTP protocol library):           yes
+  Curl C flags:        	                          -g -O2
+  Curl loader flags:                              
+
+  XPath support:				  yes
+  XPath C flags:				  -I/usr/include/libxml2
+  XPath loader flags:				  -L/usr/lib -lxml2
+
+  PCRE support (Perl pattern matching):           no
+
+
+-e 
+Compiling XSB with gcc using -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+
+-e 	[gcc] main_xsb.c
+-e 	[gcc] auxlry.c
+-e 	[gcc] biassert.c
+-e 	[gcc] builtin.c using -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+-e 	[gcc] call_xsb.c
+-e 	[gcc] cinterf.c
+-e 	[gcc] conc_compl.c
+-e 	[gcc] debug_xsb.c
+-e 	[gcc] dis.c
+-e 	[gcc] dynload.c
+-e 	[gcc] dynamic_stack.c
+-e 	[gcc] deadlock.c
+-e 	[gcc] emuloop.c using -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+-e 	[gcc] error_xsb.c
+error_xsb.c:1640:18: warning: 'tempnam' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tempnam(3), it is highly recommended that you use mkstemp(3) instead. [-Wdeprecated-declarations]
+    tempnamptr = tempnam(etcdir,"scc_dump_");
+                 ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/stdio.h:391:7: note: 'tempnam' has been explicitly marked deprecated here
+char    *tempnam(const char *, const char *) __DARWIN_ALIAS(tempnam);
+         ^
+1 warning generated.
+-e 	[gcc] findall.c
+-e 	[gcc] function.c
+-e 	[gcc] hash_xsb.c
+-e 	[gcc] hashtable_xsb.c
+-e 	[gcc] heap_xsb.c
+-e 	[gcc] init_xsb.c
+-e 	[gcc] inst_xsb.c
+-e 	[gcc] io_builtins_xsb.c
+-e 	[gcc] loader_xsb.c using -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+-e 	[gcc] memory_xsb.c
+-e 	[gcc] orient_xsb.c
+-e 	[gcc] pathname_xsb.c
+-e 	[gcc] psc_xsb.c
+-e 	[gcc] random_xsb.c
+-e 	[gcc] remove_unf.c
+-e 	[gcc] residual.c
+-e 	[gcc] rw_lock.c
+-e 	[gcc] scc_xsb.c
+-e 	[gcc] slgdelay.c
+-e 	[gcc] socket_xsb.c
+-e 	[gcc] string_xsb.c
+-e 	[gcc] storage_xsb.c
+-e 	[gcc] struct_manager.c
+-e 	[gcc] struct_intern.c
+-e 	[gcc] sub_delete.c
+-e 	[gcc] subp.c
+-e 	[gcc] system_xsb.c
+system_xsb.c:239:25: warning: 'tempnam' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tempnam(3), it is highly recommended that you use mkstemp(3) instead. [-Wdeprecated-declarations]
+    ctop_string(CTXTc 2,tempnam(NULL,NULL));
+                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/stdio.h:391:7: note: 'tempnam' has been explicitly marked deprecated here
+char    *tempnam(const char *, const char *) __DARWIN_ALIAS(tempnam);
+         ^
+1 warning generated.
+-e 	[gcc] table_stats.c
+-e 	[gcc] tables.c
+-e 	[gcc] thread_xsb.c
+-e 	[gcc] timer_xsb.c
+-e 	[gcc] token_xsb.c
+-e 	[gcc] tr_utils.c using -O3 -fno-strict-aliasing   -fPIC -Wall -pipe  
+-e 	[gcc] trace_xsb.c
+-e 	[gcc] trie_lookup.c
+-e 	[gcc] trie_search.c
+-e 	[gcc] tries.c
+-e 	[gcc] tst_insert.c
+-e 	[gcc] tst_retrv.c
+-e 	[gcc] tst_unify.c
+-e 	[gcc] tst_utils.c
+tst_utils.c:155:27: warning: data argument not used by format string [-Wformat-extra-args]
+      fprintf(fp, Intfmt, int_val(symbol));
+                  ~~~~~~  ^
+./cell_xsb.h:161:24: note: expanded from macro 'int_val'
+#define int_val(dcell) (Integer)dec_int(dcell)
+                       ^
+tst_utils.c:164:32: warning: data argument not used by format string [-Wformat-extra-args]
+      fprintf(fp, "_V" Intfmt, DecodeTrieVar(symbol));
+                  ~~~~~~~~~~~  ^
+./trie_internals.h:406:33: note: expanded from macro 'DecodeTrieVar'
+#define DecodeTrieVar(Symbol)     ( trievar_val(Symbol) & TRIEVAR_INDEX_MASK )
+                                  ^
+tst_utils.c:196:38: warning: data argument not used by format string [-Wformat-extra-args]
+      return sprintf(buffer, Intfmt, int_val(symbol));
+                             ~~~~~~  ^
+./cell_xsb.h:161:24: note: expanded from macro 'int_val'
+#define int_val(dcell) (Integer)dec_int(dcell)
+                       ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+tst_utils.c:205:43: warning: data argument not used by format string [-Wformat-extra-args]
+      return sprintf(buffer, "_V" Intfmt, DecodeTrieVar(symbol));
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+./trie_internals.h:406:33: note: expanded from macro 'DecodeTrieVar'
+#define DecodeTrieVar(Symbol)     ( trievar_val(Symbol) & TRIEVAR_INDEX_MASK )
+                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+tst_utils.c:271:35: warning: data argument not used by format string [-Wformat-extra-args]
+      fprintf(fp, "|" Intfmt "]", int_val(symbol));
+                  ~~~~~~~~~~~~~~  ^
+./cell_xsb.h:161:24: note: expanded from macro 'int_val'
+#define int_val(dcell) (Integer)dec_int(dcell)
+                       ^
+tst_utils.c:273:27: warning: data argument not used by format string [-Wformat-extra-args]
+      fprintf(fp, Intfmt, int_val(symbol));
+                  ~~~~~~  ^
+./cell_xsb.h:161:24: note: expanded from macro 'int_val'
+#define int_val(dcell) (Integer)dec_int(dcell)
+                       ^
+tst_utils.c:296:36: warning: data argument not used by format string [-Wformat-extra-args]
+      fprintf(fp, "|V" Intfmt "]", DecodeTrieVar(symbol));
+                  ~~~~~~~~~~~~~~~  ^
+./trie_internals.h:406:33: note: expanded from macro 'DecodeTrieVar'
+#define DecodeTrieVar(Symbol)     ( trievar_val(Symbol) & TRIEVAR_INDEX_MASK )
+                                  ^
+tst_utils.c:298:32: warning: data argument not used by format string [-Wformat-extra-args]
+      fprintf(fp, "_V" Intfmt, DecodeTrieVar(symbol));
+                  ~~~~~~~~~~~  ^
+./trie_internals.h:406:33: note: expanded from macro 'DecodeTrieVar'
+#define DecodeTrieVar(Symbol)     ( trievar_val(Symbol) & TRIEVAR_INDEX_MASK )
+                                  ^
+tst_utils.c:355:55: warning: data argument not used by format string [-Wformat-extra-args]
+      ctr = ctr + sprintf(buffer+ctr, "|" Intfmt "]", int_val(symbol));
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+./cell_xsb.h:161:24: note: expanded from macro 'int_val'
+#define int_val(dcell) (Integer)dec_int(dcell)
+                       ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+tst_utils.c:357:47: warning: data argument not used by format string [-Wformat-extra-args]
+      ctr = ctr + sprintf(buffer+ctr, Intfmt, int_val(symbol));
+                                      ~~~~~~  ^
+./cell_xsb.h:161:24: note: expanded from macro 'int_val'
+#define int_val(dcell) (Integer)dec_int(dcell)
+                       ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+tst_utils.c:385:56: warning: data argument not used by format string [-Wformat-extra-args]
+      ctr = ctr + sprintf(buffer+ctr, "|V" Intfmt "]", DecodeTrieVar(symbol));
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+./trie_internals.h:406:33: note: expanded from macro 'DecodeTrieVar'
+#define DecodeTrieVar(Symbol)     ( trievar_val(Symbol) & TRIEVAR_INDEX_MASK )
+                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+tst_utils.c:387:52: warning: data argument not used by format string [-Wformat-extra-args]
+      ctr = ctr + sprintf(buffer+ctr, "_V" Intfmt, DecodeTrieVar(symbol));
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+./trie_internals.h:406:33: note: expanded from macro 'DecodeTrieVar'
+#define DecodeTrieVar(Symbol)     ( trievar_val(Symbol) & TRIEVAR_INDEX_MASK )
+                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+12 warnings generated.
+-e 	[gcc] varstring.c
+-e 	[gcc] ubi_BinTree.c
+-e 	[gcc] ubi_SplayTree.c
+-e 	[gcc] hashtable.c
+-e 	[gcc] hashtable_itr.c
+-e 	[gcc] url_encode.c
+-e 	[gcc] incr_xsb.c
+-e 	[gcc] call_graph_xsb.c
+
+Making XSB executable /Users/Saint/Code/XSB/config/i386-apple-darwin15.0.0/bin/xsb 
+
+-e 	[gcc] -o /Users/Saint/Code/XSB/config/i386-apple-darwin15.0.0/bin/xsb
+
+-e 	[gcc] gpp.c using  
+gpp.c:1301:25: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+      fprintf(C->out->f,endseq);
+                        ^~~~~~
+1 warning generated.
+-e 	[gcc] -o gpp
+
+
+

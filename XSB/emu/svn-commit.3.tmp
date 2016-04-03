@@ -1,0 +1,8 @@
+
+Fixed bug in abolish_nonincremental_tables.  Subgoals were being
+abolished rather than being moved to the DELTF list if choice points
+were pointing into these tables.
+
+--This line, and those below, will be ignored--
+
+M    tr_utils.c
