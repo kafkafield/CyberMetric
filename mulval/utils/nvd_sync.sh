@@ -48,9 +48,10 @@ while [ $i -le $year ]; do
       #wget  http://nvd.nist.gov/download/nvdcve-$i.xml
       wget  https://nvd.nist.gov/download/nvdcve-$i.xml.gz
       gzip -d nvdcve-$i.xml.gz
-      i=`expr $i + 1`
-  fi
+    fi
+    i=`expr $i + 1`
 done
+echo 'xml updated successfully'
 cd ..
 java -cp $CLASSPATH -Xmx2g InitializeDB $year
 echo "NVD update finished. You can remove the temporary NVD files in $NVDPATH."

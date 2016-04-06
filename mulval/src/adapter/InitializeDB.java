@@ -157,9 +157,9 @@ String path = f.getPath();
 
 			sql.execute("drop table if exists nvd");                                                                                                                                                                                                        //,primary key(id)
 
-			sql.execute("create table nvd(id varchar(20) not null,soft varchar(160) not null default 'ndefined',rng varchar(100) not null default 'undefined',lose_types varchar(100) not null default 'undefind',severity varchar(20) not null default 'unefined',access varchar(20) not null default 'unefined');");
+			sql.execute("create table nvd(id varchar(20) not null,soft varchar(160) not null default 'ndefined',rng varchar(100) not null default 'undefined',lose_types varchar(100) not null default 'undefind',severity varchar(20) not null default 'unefined',access varchar(20) not null default 'unefined',av varchar(20) not null default 'unefined',au varchar(20) not null default 'unefined',ac varchar(20) not null default 'unefined',ci varchar(20) not null default 'unefined',ii varchar(20) not null default 'unefined',ai varchar(20) not null default 'unefined');");
 
-	
+			System.out.println("Successfully create table. ");
 
 			SAXReader saxReader = new SAXReader();
 
@@ -195,10 +195,13 @@ String path = f.getPath();
 				String cvss = "";
 				
 				
-				
-				
-				
 				String access = "";
+				String av_s = "";
+				String au_s = "";
+				String ac_s = "";
+				String ci_s = "";
+				String ii_s = "";
+				String ai_s = "";
 				
 				
 			//	System.out.println(cveid + access);
@@ -302,12 +305,16 @@ String path = f.getPath();
 
 
 				}
-				
+				//(AV:N/AC:L/Au:N/C:C/I:C/A:C)
 				if (attr.contains("CVSS_vector")) 
 				{
-					
 					cvss = id.attributeValue("CVSS_vector");
+					char av = cvss.charAt(4);
 					char ac = cvss.charAt(9);
+					char au = cvss.charAt(14);
+					char ci = cvss.charAt(18);
+					char ii = cvss.charAt(22);
+					char ai = cvss.charAt(26);
 					if (ac=='L')
 						access="l";
 					else if (ac =='M')
@@ -315,7 +322,12 @@ String path = f.getPath();
 					else if (ac=='H')
 						access="h";
 					else ;
-					
+					ac_s="" + ac;
+					av_s="" + av;
+					au_s="" + au;
+					ci_s="" + ci;
+					ii_s="" + ii;
+					ai_s="" + ai;
 				}
 
 
@@ -418,18 +430,14 @@ String path = f.getPath();
 
 				//System.out.println(cveid + lose_types + rge + sftw + sev + access);
 
-				String insert = "insert nvd values('" + cveid + "','"
-
-						+ sftw + "','" + rge + "','" + lose_types + "','" + sev
-
-						+ "','" + access+"')";
+				String insert = "insert nvd values('" + cveid + "','" + sftw + "','" + rge + "','" + 
+					lose_types + "','" + sev + "','" + access + "','" +
+					av_s + "','" +au_s + "','" +ac_s + "','" +ci_s + "','" +ii_s + "','" +ai_s + "')";
 
 				sql.execute(insert);
 
-
-
 			}
-
+				System.out.println("Successfully Insert one xml.");
 			}
 
 			sql.close();
