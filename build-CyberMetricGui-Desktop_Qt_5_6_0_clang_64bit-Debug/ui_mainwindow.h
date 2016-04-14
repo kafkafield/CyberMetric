@@ -61,7 +61,7 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         pushButton = new QPushButton(tab);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(20, 10, 113, 32));
+        pushButton->setGeometry(QRect(30, 10, 141, 32));
         scrollArea = new QScrollArea(tab);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setGeometry(QRect(30, 40, 1120, 850));
@@ -105,7 +105,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "CyberMetric", 0));
         actionNew_n->setText(QApplication::translate("MainWindow", "New&(n)", 0));
         actionOpen_o->setText(QApplication::translate("MainWindow", "Open&(o)", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "GetInput", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Generate Graph", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Attack Graph", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Metric Detail", 0));
         menuFile_f->setTitle(QApplication::translate("MainWindow", "File(f)", 0));

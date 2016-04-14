@@ -10,15 +10,17 @@ from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+from matplotlib.transforms import Affine2D
+import mpl_toolkits.axisartist.floating_axes as floating_axes
 
 mpl.rcParams['font.size'] = 10
-
-samples = 25
-
-x = np.random.normal(5, 1, samples)
-y = np.random.normal(3, .5, samples)
-
 fig = plt.figure()
+
+#plot_extents = 0, 10, 0, 10
+#transform = Affine2D().rotate_deg(45)
+#helper = floating_axes.GridHelperCurveLinear(transform, plot_extents)
+#axis = floating_axes.FloatingSubplot(fig, 111, grid_helper=helper)
+
 ax = fig.add_subplot(111, projection='3d')
 
 # compute two-dimensional histogram

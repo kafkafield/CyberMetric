@@ -13,8 +13,8 @@ MAKEFILE      = Makefile
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
+CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.9 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.9 -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I../CyberMetricGui -I. -I../../../Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt5.6.0/5.6/clang_64/lib/QtGui.framework/Headers -I../../../Qt5.6.0/5.6/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt5.6.0/5.6/clang_64/mkspecs/macx-clang -F/Users/Saint/Qt5.6.0/5.6/clang_64/lib
 QMAKE         = /Users/Saint/Qt5.6.0/5.6/clang_64/bin/qmake
 DEL_FILE      = rm -f
@@ -35,7 +35,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = CyberMetricGui1.0.0
 DISTDIR = /Users/Saint/Code/CyberMetric/build-CyberMetricGui-Desktop_Qt_5_6_0_clang_64bit-Debug/.tmp/CyberMetricGui1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/Saint/Qt5.6.0/5.6/clang_64/lib
+LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.9 -Wl,-rpath,/Users/Saint/Qt5.6.0/5.6/clang_64/lib
 LIBS          = $(SUBLIBS) -F/Users/Saint/Qt5.6.0/5.6/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
@@ -172,6 +172,7 @@ DIST          = ../../../Qt5.6.0/5.6/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/spec_post.prf \
+		../CyberMetricGui/.qmake.stash \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -326,6 +327,7 @@ Makefile: ../CyberMetricGui/CyberMetricGui.pro ../../../Qt5.6.0/5.6/clang_64/mks
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt5.6.0/5.6/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -471,6 +473,7 @@ Makefile: ../CyberMetricGui/CyberMetricGui.pro ../../../Qt5.6.0/5.6/clang_64/mks
 ../../../Qt5.6.0/5.6/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt5.6.0/5.6/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt5.6.0/5.6/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt5.6.0/5.6/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt5.6.0/5.6/clang_64/mkspecs/features/default_pre.prf:
 ../../../Qt5.6.0/5.6/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -589,7 +592,11 @@ main.o: ../CyberMetricGui/main.cpp ../CyberMetricGui/mainwindow.h \
 mainwindow.o: ../CyberMetricGui/mainwindow.cpp ../CyberMetricGui/mainwindow.h \
 		../../../Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../Qt5.6.0/5.6/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt5.6.0/5.6/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework/Headers/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../CyberMetricGui/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

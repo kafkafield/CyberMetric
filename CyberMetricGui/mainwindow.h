@@ -12,11 +12,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
+    QString inputPath;
+    QString outDir;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 private slots:
     void on_pushButton_clicked();
+    void open_file();
 
 private:
     Ui::MainWindow *ui;
