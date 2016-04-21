@@ -38,67 +38,64 @@ public class GetTplQry_nessusXML {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-String filename="vulInfo.txt";
-File f = new File(filename);
-String path = f.getPath();
-String cvdid="";
-String hostname="";
-try{
-	
-	BufferedReader breader= new BufferedReader(new FileReader(path));
-	ArrayList<String> cvePort= new ArrayList<String>();
-	
-//	hostname=breader.readLine()+"_host";
-	while ((cvdid = breader.readLine()) != null) {
-		
-		cvePort.add(cvdid); //put all of the cve ids and port info into the arrayList
-		
-	}
-	writeTpls(cvePort);
-	
-//	writeAccount(hostname);
-}
+		String filename="vulInfo.txt";
+		File f = new File(filename);
+		String path = f.getPath();
+		String cvdid="";
+		String hostname="";
+		try{
+			
+			BufferedReader breader= new BufferedReader(new FileReader(path));
+			ArrayList<String> cvePort= new ArrayList<String>();
+			
+		//	hostname=breader.readLine()+"_host";
+			while ((cvdid = breader.readLine()) != null) {
+				
+				cvePort.add(cvdid); //put all of the cve ids and port info into the arrayList
+				
+			}
+			writeTpls(cvePort);
+			
+		//	writeAccount(hostname);
+		}
 
-catch(Exception e){
-	
-	e.printStackTrace();
-}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
 	}
+
 	public static Connection getConnection() throws SQLException,
 	java.lang.ClassNotFoundException, IOException {
-//String url = "jdbc:mysql://localhost:3306/mulvalDB";
-//String url = "jdbc:mysql://mysql.cis.ksu.edu:3306/zhangs84";
-//String password="8CFQZZyF";
-Class.forName("com.mysql.jdbc.Driver");
-//String userName = "root";
-//String password = "";
-String url="";
-String userName="";
-String password="";
-File f = new File("config.txt");
-String path = f.getPath();
+		//String url = "jdbc:mysql://localhost:3306/mulvalDB";
+		//String url = "jdbc:mysql://mysql.cis.ksu.edu:3306/zhangs84";
+		//String password="8CFQZZyF";
+		Class.forName("com.mysql.jdbc.Driver");
+		//String userName = "root";
+		//String password = "";
+		String url="";
+		String userName="";
+		String password="";
+		File f = new File("config.txt");
+		String path = f.getPath();
 
-	
-	BufferedReader breader= new BufferedReader(new FileReader(path));
-	
-	url=breader.readLine();
-	userName=breader.readLine();
-	password=breader.readLine();
-	Connection con = DriverManager.getConnection(url, userName, password);
-	return con;	
+			
+			BufferedReader breader= new BufferedReader(new FileReader(path));
+			
+			url=breader.readLine();
+			userName=breader.readLine();
+			password=breader.readLine();
+			Connection con = DriverManager.getConnection(url, userName, password);
+			return con;	
+	}
 
-
-}
     public static void writeAccount(ArrayList<String> hosts){
-    	
-    	
-    	
     	try{
     		
     		String victim = "";
     		FileWriter fr= new FileWriter("accountinfo.P");
     		Iterator<String> hostItr = hosts.iterator();
-    	String host = "";
+    		String host = "";
     		while(hostItr.hasNext()){
     			
     			host = hostItr.next();
@@ -130,6 +127,7 @@ String path = f.getPath();
     	
     	
     }
+	
 	public static void writeTpls(ArrayList<String> al){
 		
 		String cveid="";
