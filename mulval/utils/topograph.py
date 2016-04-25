@@ -14,6 +14,9 @@ class vertices:
 		self.link = []
 		self.id = id
 
+	def loadImport(self, ip):
+		self.importance(ip)
+
 	def printId(self):
 		print self.id
 		print self.link
@@ -23,7 +26,7 @@ def buildVertices():
 	pattern1 = re.compile(r'hacl\(\s*(\w+),\s*(\w+),\s*(\w+),\s*(\w+)\)\.')
 	pattern2 = re.compile(r'^inSubnet\(\s*(\w+),\s*(\w+)\)\.')
 
-	id = 1
+	id = 0
 	while 1:
 		buf = fp.readline()
 		# print buf
@@ -71,8 +74,30 @@ def buildConnection():
 			# print match.groups()[0] 
 			ori = match.groups()[0]
 			dest = match.groups()[1]
-			pointDict[ori].link.append(dest)
-			withoutnet[ori].link.append(dest)
+			if dest not in pointDict[ori].link:
+				pointDict[ori].link.append(dest)
+				withoutnet[ori].link.append(dest)
+
+	fp.close()
+
+def buildConnectionOrigin():
+	fp = open("h2v1s5.P", "r+")
+
+	while(1):
+		buf = fp.readline()
+		# print buf
+		if not buf:
+			break
+		pattern = re.compile(r'hacl\(\s*(\w+),\s*(\w+),\s*(\w+),\s*(\w+)\)\.') 
+		match = pattern.search(buf) 
+
+		if match:
+			# print match.groups()[0] 
+			ori = match.groups()[0]
+			dest = match.groups()[1]
+			if dest not in pointDict[ori].link:
+				pointDict[ori].link.append(dest)
+				withoutnet[ori].link.append(dest)
 
 	fp.close()
 
@@ -92,34 +117,62 @@ def getSubnet():
 			subnetId = match2.groups()[1]
 			if subnetId not in subnet.keys():
 				subnet[subnetId] = []
-			subnet[subnetId].append(p3)
+			if p3 not in subnet[subnetId]:
+				subnet[subnetId].append(p3)
 			if p3 in withoutnet.keys():
 				del withoutnet[p3]
 
 	fp.close()
 
+def computeVerticeImportance():
+	buildVertices()
+	buildConnectionOrigin()
+	getSubnet()
+	getAllConnection()
+	narray =  [[0 for i in range(b)] for i in range(b)]
+	for key in pointDict.keys():
+		for key2 in pointDict[key].link:
+			#print pointDict[key2].id, pointDict[key].id
+			narray[pointDict[key2].id][pointDict[key].id] = narray[pointDict[key].id][pointDict[key2].id] = 1
+	DLOS
+	ILOS
+
+
+
+def getAllConnection():
+	for subID in subnet.keys():
+		sub = subnet[subID]
+		print subID
+		for n1 in sub:
+			for n2 in sub:
+				if n1 != n2:
+					pointDict[n1].link.append(n2)
+
 def convMetric():
 	#for key in pointDict.keys():
 		#pointDict[key].printId()
 
-	a = 0
+	a = 0.0
 	b = len(pointDict.keys())
 	print b
-	narray = [[0] * b] * b
-	used = [0] * b
+	narray =  [[0 for i in range(b)] for i in range(b)]
+	used = [0 for i in range(b)]
 	for key in pointDict.keys():
 		for key2 in pointDict[key].link:
-			print pointDict[key2].id, pointDict[key].id
+			#print pointDict[key2].id, pointDict[key].id
 			narray[pointDict[key2].id][pointDict[key].id] = narray[pointDict[key].id][pointDict[key2].id] = 1
 
-	print narray
+	#print narray
 	print used
 
 	for i in range(b):
 		if used[i] == 0:
 			dfs(used, narray, b, i)
 			a = a+1
-	print a
+	#print a
+
+	metric = 10.0 * (1 - (a - 1)/(b - 1))
+	print metric
 
 def dfs(used, narray, size, cur):
 	used[cur] = 1
@@ -128,9 +181,61 @@ def dfs(used, narray, size, cur):
 			used[i] = 1
 			dfs(used, narray, size, i)
 
+def cycleMetric():
+	a = 0.0
+	b = len(pointDict.keys())
+	#print b
+	narray =  [[0 for i in range(b)] for i in range(b)]
+	dfn = [0 for i in range(b)]
+	low = [0 for i in range(b)]
+	stack = []
+	instack = [0 for i in range(b)]
+	for key in pointDict.keys():
+		for key2 in pointDict[key].link:
+			#print pointDict[key2].id, pointDict[key].id
+			narray[pointDict[key].id][pointDict[key2].id] = 1
 
-def printDot():
-	fp = open("TopoAttackGraph.dot", "w")
+	#print narray
+	#print dfn, low, stack
+
+	index = 0
+
+	for i in range(b):
+		if dfn[i] == 0:
+			index, a = tarjan(dfn, low, instack, stack, narray, b, 0, index, a)
+	#print a
+	#print index
+
+	metric = 10.0 * (1 - (a - 1)/(b - 1))
+	#print metric
+
+def tarjan(dfn, low, instack, stack, narray, size, cur, index, res):
+	index = index + 1
+	dfn[cur] = low[cur] = index
+	instack[cur] = 1
+	stack.append(cur)
+	for i in range(size):
+		if narray[i][cur] == 1:
+			if dfn[i] == 0:
+				index, res = tarjan(dfn, low, instack, stack, narray, size, i, index)
+				if low[i] < low[cur]:
+					low[cur] = low[i]
+			else:
+				if instack[i] > 0 and dfn[i] < low[cur]:
+					low[cur] = dfn[i]
+
+	if dfn[cur] == low[cur]:
+		res = res + 1
+		j = stack.pop()
+		instack[j] = 0
+		while j != cur:
+			j = stack.pop()
+			instack[j] = 0
+
+	return index, res
+
+def printDot(name):
+	fp = open(name + ".dot", "w")
 	seq = []
 	seq.append('digraph G {\n')
 
@@ -151,14 +256,12 @@ def printDot():
 	#print seq
 	fp.writelines(seq)
 	fp.close()
-	os.system('dot -Tpng TopoAttackGraph.dot > TopoAttackGraph.png')
+	os.system('dot -Tpng ' + name + '.dot > ' + name + '.png')
 
 if __name__ == "__main__":
 	buildVertices()
-	#print withoutnet
-	#print pointDict
-	buildConnection()
-	#print pointDict
+	buildConnectionOrigin()
 	getSubnet()
-	convMetric()
-	#printDot()
+	#getAllConnection()
+	#cycleMetric()
+	printDot("TopoAttackGraph")
