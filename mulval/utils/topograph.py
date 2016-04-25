@@ -129,14 +129,19 @@ def computeVerticeImportance():
 	buildConnectionOrigin()
 	getSubnet()
 	getAllConnection()
-	narray =  [[0 for i in range(b)] for i in range(b)]
+	b = len(pointDict.keys())
+	narray = [[-1 for i in range(b)] for i in range(b)]
 	for key in pointDict.keys():
 		for key2 in pointDict[key].link:
 			#print pointDict[key2].id, pointDict[key].id
 			narray[pointDict[key2].id][pointDict[key].id] = narray[pointDict[key].id][pointDict[key2].id] = 1
-	DLOS
-	ILOS
+	distance = computeDistance(narray)
 
+def computeDistance(narray):
+	distance = list(narray)
+	print distance
+	for key in pointDict.keys():
+		vId = pointDict[key].id
 
 
 def getAllConnection():
@@ -259,9 +264,10 @@ def printDot(name):
 	os.system('dot -Tpng ' + name + '.dot > ' + name + '.png')
 
 if __name__ == "__main__":
-	buildVertices()
-	buildConnectionOrigin()
-	getSubnet()
+	#buildVertices()
+	#buildConnectionOrigin()
+	#getSubnet()
 	#getAllConnection()
 	#cycleMetric()
-	printDot("TopoAttackGraph")
+	#printDot("TopoAttackGraph")
+	computeVerticeImportance()
