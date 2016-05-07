@@ -3,6 +3,7 @@
 
 import re
 import os
+import copy
 
 pointDict = {}
 subnet = {}
@@ -130,24 +131,49 @@ def computeVerticeImportance():
 	getSubnet()
 	getAllConnection()
 	b = len(pointDict.keys())
-	narray = [[-1 for i in range(b)] for i in range(b)]
+	importance = [0 for i in range(b)]
+	narray = [[0x3f3f3f3f for i in range(b)] for i in range(b)]
 	for key in pointDict.keys():
 		for key2 in pointDict[key].link:
 			#print pointDict[key2].id, pointDict[key].id
 			narray[pointDict[key2].id][pointDict[key].id] = narray[pointDict[key].id][pointDict[key2].id] = 1
+	#print narray
 	distance = computeDistance(narray)
+	#print distance
+	for i in range(b):
+		n1 = copy.deepcopy(narray)
+		#print n1
+		for j in range(b):
+			n1[i][j] = n1[j][i] = 0x3f3f3f3f
+		distance2 = computeDistance(n1)
+		tlos = 0
+		#print distance2
+		for k1 in range(b):
+			for k2 in range(b):
+				if distance2[k1][k2] == 0x3f3f3f3f and distance[k1][k2] != 0x3f3f3f3f:
+					tlos = tlos + 1 / float(distance[k1][k2])
+		importance[i] = tlos
+	print importance
+	#print narray
 
 def computeDistance(narray):
-	distance = list(narray)
-	print distance
-	for key in pointDict.keys():
-		vId = pointDict[key].id
+	l = len(pointDict.keys())
+	distance = [[0x3f3f3f3f for i in range(l)] for i in range(l)]
+	distance = copy.deepcopy(narray)
+	#print distance
+	for k in range(l):
+		for j in range(l):
+			for i in range(l):
+				if distance[i][j] > distance[i][k] + distance[k][j]:
+					 distance[i][j] = distance[i][k] + distance[k][j]
+	#print distance
+	return distance
 
 
 def getAllConnection():
 	for subID in subnet.keys():
 		sub = subnet[subID]
-		print subID
+		#print subID
 		for n1 in sub:
 			for n2 in sub:
 				if n1 != n2:
