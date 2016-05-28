@@ -1,0 +1,106 @@
+digraph G {
+t42 [label="historian_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t41 [label="subnet2_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t40 [label="internet",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/internet.jpeg"];
+subgraph cluster_fileServers{
+label="fileServers";
+bgcolor="mintcream";
+t20 [label="fileServers_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t21 [label="fileServers_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t22 [label="fileServers_host_3",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t23 [label="fileServers_host_4",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t24 [label="fileServers_host_5",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t25 [label="fileServers_host_6",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t26 [label="fileServers_host_7",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t27 [label="fileServers_host_8",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t28 [label="fileServers_host_9",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t29 [label="fileServers_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+subgraph cluster_workStation{
+label="workStation";
+bgcolor="mintcream";
+t10 [label="workStation_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t11 [label="workStation_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t12 [label="workStation_host_3",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t13 [label="workStation_host_4",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t14 [label="workStation_host_5",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t15 [label="workStation_host_6",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t16 [label="workStation_host_7",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t17 [label="workStation_host_8",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t18 [label="workStation_host_9",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t19 [label="workStation_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+subgraph cluster_subnet1{
+label="subnet1";
+bgcolor="mintcream";
+t0 [label="subnet1_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t1 [label="subnet1_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t2 [label="subnet1_host_3",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t3 [label="subnet1_host_4",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t4 [label="subnet1_host_5",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t5 [label="subnet1_host_6",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t6 [label="subnet1_host_7",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t7 [label="subnet1_host_8",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t8 [label="subnet1_host_9",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t9 [label="subnet1_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+subgraph cluster_dmz{
+label="dmz";
+bgcolor="mintcream";
+t30 [label="dmz_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t31 [label="dmz_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t32 [label="dmz_host_3",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t33 [label="dmz_host_4",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t34 [label="dmz_host_5",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t35 [label="dmz_host_6",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t36 [label="dmz_host_7",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t37 [label="dmz_host_8",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t38 [label="dmz_host_9",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t39 [label="dmz_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+t39 -> t39;
+t10 -> t19;
+t36 -> t39;
+t12 -> t19;
+t11 -> t19;
+t14 -> t19;
+t13 -> t19;
+t16 -> t19;
+t15 -> t19;
+t18 -> t19;
+t17 -> t19;
+t42 -> t39;
+t19 -> t29;
+t19 -> t19;
+t29 -> t28;
+t29 -> t19;
+t29 -> t29;
+t35 -> t39;
+t31 -> t39;
+t40 -> t39;
+t40 -> t29;
+t30 -> t39;
+t32 -> t39;
+t38 -> t39;
+t37 -> t39;
+t33 -> t39;
+t27 -> t28;
+t27 -> t29;
+t28 -> t29;
+t28 -> t28;
+t23 -> t28;
+t23 -> t29;
+t24 -> t28;
+t24 -> t29;
+t25 -> t28;
+t25 -> t29;
+t26 -> t28;
+t26 -> t29;
+t34 -> t39;
+t20 -> t28;
+t20 -> t29;
+t21 -> t28;
+t21 -> t29;
+t22 -> t28;
+t22 -> t29;
+}

@@ -1,0 +1,77 @@
+1,"execCode(dmz_host_10,root)","OR",0.599497480722
+2,"RULE 1 (local exploit)","AND",0.191853350899
+3,"vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation)","LEAF",1.0
+4,"execCode(dmz_host_10,user)","OR",0.702039486603
+5,"RULE 2 (remote exploit of a server program)","AND",0.218624
+6,"netAccess(dmz_host_10,httpProtocol,httpPort)","OR",0.8
+7,"RULE 6 (direct network access)","AND",0.8
+8,"hacl(internet,dmz_host_10,httpProtocol,httpPort)","LEAF",1.0
+9,"attackerLocated(internet)","LEAF",1.0
+10,"networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user)","LEAF",1.0
+11,"vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+12,"RULE 2 (remote exploit of a server program)","AND",0.2748416
+13,"vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+14,"RULE 2 (remote exploit of a server program)","AND",0.2748416
+15,"vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+16,"RULE 2 (remote exploit of a server program)","AND",0.2748416
+17,"vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+18,"RULE 1 (local exploit)","AND",0.191853350899
+19,"vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation)","LEAF",1.0
+20,"RULE 1 (local exploit)","AND",0.191853350899
+21,"vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation)","LEAF",1.0
+22,"RULE 1 (local exploit)","AND",0.241187069701
+23,"vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation)","LEAF",1.0
+24,"execCode(fileServers_host_10,root)","OR",0.33079862106
+25,"RULE 1 (local exploit)","AND",0.202389834191
+26,"vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation)","LEAF",1.0
+27,"execCode(fileServers_host_10,user)","OR",0.589109753955
+28,"RULE 2 (remote exploit of a server program)","AND",0.2748416
+29,"netAccess(fileServers_host_10,httpProtocol,httpPort)","OR",0.8
+30,"RULE 6 (direct network access)","AND",0.8
+31,"hacl(internet,fileServers_host_10,httpProtocol,httpPort)","LEAF",1.0
+32,"networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user)","LEAF",1.0
+33,"vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+34,"RULE 2 (remote exploit of a server program)","AND",0.218624
+35,"vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+36,"RULE 2 (remote exploit of a server program)","AND",0.2748416
+37,"vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+38,"RULE 1 (local exploit)","AND",0.160991913561
+39,"vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation)","LEAF",1.0
+40,"execCode(fileServers_host_9,root)","OR",0.162815230837
+41,"RULE 1 (local exploit)","AND",0.094650994057
+42,"vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation)","LEAF",1.0
+43,"execCode(fileServers_host_9,user)","OR",0.275507038402
+44,"RULE 2 (remote exploit of a server program)","AND",0.20998091168
+45,"netAccess(fileServers_host_9,httpProtocol,httpPort)","OR",0.611205615685
+46,"RULE 5 (multi-hop access)","AND",0.264638896848
+47,"hacl(fileServers_host_10,fileServers_host_9,httpProtocol,httpPort)","LEAF",1.0
+48,"RULE 5 (multi-hop access)","AND",0.471287803164
+49,"networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user)","LEAF",1.0
+50,"vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+51,"RULE 2 (remote exploit of a server program)","AND",0.0829424601135
+52,"vulExists(fileServers_host_9,'CVE-2016-0007',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+53,"RULE 1 (local exploit)","AND",0.0752905634544
+54,"vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation)","LEAF",1.0
+55,"execCode(workStation_host_10,root)","OR",0.52401522037
+56,"RULE 1 (local exploit)","AND",0.0999251072659
+57,"vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation)","LEAF",1.0
+58,"execCode(workStation_host_10,user)","OR",0.506925260074
+59,"RULE 2 (remote exploit of a server program)","AND",0.20998091168
+60,"netAccess(workStation_host_10,httpProtocol,httpPort)","OR",0.611205615685
+61,"RULE 5 (multi-hop access)","AND",0.264638896848
+62,"hacl(fileServers_host_10,workStation_host_10,httpProtocol,httpPort)","LEAF",1.0
+63,"RULE 5 (multi-hop access)","AND",0.471287803164
+64,"networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user)","LEAF",1.0
+65,"vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+66,"RULE 2 (remote exploit of a server program)","AND",0.20998091168
+67,"vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+68,"RULE 2 (remote exploit of a server program)","AND",0.20998091168
+69,"vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)","LEAF",1.0
+70,"RULE 1 (local exploit)","AND",0.0999251072659
+71,"vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation)","LEAF",1.0
+72,"RULE 1 (local exploit)","AND",0.174155186949
+73,"vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation)","LEAF",1.0
+74,"RULE 1 (local exploit)","AND",0.138532535073
+75,"vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation)","LEAF",1.0
+76,"RULE 1 (local exploit)","AND",0.174155186949
+77,"vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation)","LEAF",1.0

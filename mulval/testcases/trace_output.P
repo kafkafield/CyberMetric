@@ -33,189 +33,29 @@ attack(execCode(workStation_host_10,root)).
 
 possible_duplicate_trace_step(because(6,rule_desc('direct network access',1.0),netAccess(dmz_host_10,httpProtocol,httpPort),[hacl(internet,dmz_host_10,httpProtocol,httpPort),attackerLocated(internet)])).
 
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
 possible_duplicate_trace_step(because(6,rule_desc('direct network access',1.0),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(internet,fileServers_host_10,httpProtocol,httpPort),attackerLocated(internet)])).
 
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(dmz_host_10_victim),[execCode(dmz_host_10,user),hasAccount(dmz_host_10_victim,dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_10_victim),[execCode(fileServers_host_10,user),hasAccount(fileServers_host_10_victim,fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(dmz_host_10_victim),[execCode(dmz_host_10,root),hasAccount(dmz_host_10_victim,dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_10_victim),[execCode(fileServers_host_10,root),hasAccount(fileServers_host_10_victim,fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,workStation_host_10,httpProtocol,httpPort),advances(fileServers_host_10,workStation_host_10),execCode(fileServers_host_10,user)])).
 
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_10),execCode(fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)])).
 
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_9),execCode(fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
 
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(dmz_host_10,httpProtocol,httpPort),[hacl(dmz_host_10,dmz_host_10,httpProtocol,httpPort),advances(dmz_host_10,dmz_host_10),execCode(dmz_host_10,user)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(dmz_host_10),[execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(dmz_host_10),[execCode(dmz_host_10,root)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
-
-possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_10),[execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_10),[execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(dmz_host_10_victim),[execCode(dmz_host_10,user),hasAccount(dmz_host_10_victim,dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_10_victim),[execCode(fileServers_host_10,user),hasAccount(fileServers_host_10_victim,fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(dmz_host_10),[execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
-
-possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_10),[execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,remoteExploit,privEscalation)])).
-
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,workStation_host_10,httpProtocol,httpPort),advances(fileServers_host_10,workStation_host_10),execCode(fileServers_host_10,root)])).
-
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,workStation_host_10,httpProtocol,httpPort),advances(fileServers_host_10,workStation_host_10),execCode(fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,user)])).
 
@@ -224,90 +64,60 @@ possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAcc
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,user)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,user)])).
-
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_10),execCode(fileServers_host_10,root)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_10),execCode(fileServers_host_10,user)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,fileServers_host_10,httpProtocol,httpPort),advances(workStation_host_10,fileServers_host_10),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_10),execCode(fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_9),execCode(fileServers_host_10,root)])).
-
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_9),execCode(fileServers_host_10,user)])).
-
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_9),execCode(fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(dmz_host_10,httpProtocol,httpPort),[hacl(dmz_host_10,dmz_host_10,httpProtocol,httpPort),advances(dmz_host_10,dmz_host_10),execCode(dmz_host_10,root)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(dmz_host_10,httpProtocol,httpPort),[hacl(dmz_host_10,dmz_host_10,httpProtocol,httpPort),advances(dmz_host_10,dmz_host_10),execCode(dmz_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_9_victim),[execCode(fileServers_host_9,user),hasAccount(fileServers_host_9_victim,fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,user),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
-
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,user),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,workStation_host_10,httpProtocol,httpPort),advances(fileServers_host_10,workStation_host_10),execCode(fileServers_host_10,root)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,root)])).
 
@@ -316,102 +126,372 @@ possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAcc
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,root)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_10),execCode(fileServers_host_10,root)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,fileServers_host_10,httpProtocol,httpPort),advances(workStation_host_10,fileServers_host_10),execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_10),execCode(fileServers_host_9,root)])).
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_9),execCode(fileServers_host_10,root)])).
 
-possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_9),execCode(fileServers_host_9,root)])).
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(dmz_host_10,httpProtocol,httpPort),[hacl(dmz_host_10,dmz_host_10,httpProtocol,httpPort),advances(dmz_host_10,dmz_host_10),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-0007',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-0007',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,user),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0038',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
 
 possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,root),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
 
 possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,root),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
-
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
-
-possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_9_victim),[execCode(fileServers_host_9,root),hasAccount(fileServers_host_9_victim,fileServers_host_9,user)])).
 
 possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(workStation_host_10),[execCode(workStation_host_10,user)])).
 
 possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(workStation_host_10),[execCode(workStation_host_10,root)])).
 
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(dmz_host_10_victim),[execCode(dmz_host_10,user),hasAccount(dmz_host_10_victim,dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_9_victim),[execCode(fileServers_host_9,user),hasAccount(fileServers_host_9_victim,fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_10_victim),[execCode(fileServers_host_10,user),hasAccount(fileServers_host_10_victim,fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,user),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,root)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation_host_10,user),[netAccess(workStation_host_10,httpProtocol,httpPort),networkServiceInfo(workStation_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(workStation_host_10,'CVE-2016-0009',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0010',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_10,user),[netAccess(fileServers_host_10,httpProtocol,httpPort),networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(fileServers_host_9,user),[netAccess(fileServers_host_9,httpProtocol,httpPort),networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol,httpPort,user),vulExists(fileServers_host_9,'CVE-2016-0007',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0012',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0022',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
+
+possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(dmz_host_10,user),[netAccess(dmz_host_10,httpProtocol,httpPort),networkServiceInfo(dmz_host_10,serverApplication,httpProtocol,httpPort,user),vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,remoteExploit,privEscalation)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+
+possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(dmz_host_10),[execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(dmz_host_10),[execCode(dmz_host_10,root)])).
 
 possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_9),[execCode(fileServers_host_9,user)])).
 
 possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_9),[execCode(fileServers_host_9,root)])).
 
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
+possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_10),[execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_10),[execCode(fileServers_host_10,root)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
-
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
 
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
 
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
 
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
+
 possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
 
-possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
 possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(workStation_host_10),[execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
-possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_9_victim),[execCode(fileServers_host_9,user),hasAccount(fileServers_host_9_victim,fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(workStation_host_10,user),[canAccessHost(workStation_host_10),hasAccount(workStation_host_10_victim,workStation_host_10,user),principalCompromised(workStation_host_10_victim)])).
 
 possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,user),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
 
 possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(workStation_host_10_victim),[execCode(workStation_host_10,user),hasAccount(workStation_host_10_victim,workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(dmz_host_10),[execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(dmz_host_10_victim),[execCode(dmz_host_10,root),hasAccount(dmz_host_10_victim,dmz_host_10,user)])).
 
 possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_9),[execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_9_victim),[execCode(fileServers_host_9,root),hasAccount(fileServers_host_9_victim,fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(8,rule_desc('Access a host through executing code on the machine',1.0),canAccessHost(fileServers_host_10),[execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(11,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_10_victim),[execCode(fileServers_host_10,root),hasAccount(fileServers_host_10_victim,fileServers_host_10,user)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,user)])).
 
@@ -420,22 +500,86 @@ possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAcc
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,user)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,workStation_host_10,httpProtocol,httpPort),advances(workStation_host_10,workStation_host_10),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,workStation_host_10,httpProtocol,httpPort),advances(fileServers_host_10,workStation_host_10),execCode(fileServers_host_10,user)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_10),execCode(fileServers_host_9,user)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(workStation_host_10,fileServers_host_10,httpProtocol,httpPort),advances(workStation_host_10,fileServers_host_10),execCode(workStation_host_10,user)])).
 
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_10),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_10),execCode(fileServers_host_10,user)])).
+
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_9),execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_9),execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_10,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_10,fileServers_host_9),execCode(fileServers_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(dmz_host_10,httpProtocol,httpPort),[hacl(dmz_host_10,dmz_host_10,httpProtocol,httpPort),advances(dmz_host_10,dmz_host_10),execCode(dmz_host_10,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
 
-possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-([0-9]+)',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0003',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',clientApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(workStation_host_10,root),[vulExists(workStation_host_10,'CVE-2016-0002',localApplication,localExploit,privEscalation),execCode(workStation_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0029',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(dmz_host_10,root),[vulExists(dmz_host_10,'CVE-2016-0011',localApplication,localExploit,privEscalation),execCode(dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0011',serverApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_10,root),[vulExists(fileServers_host_10,'CVE-2016-0008',clientApplication,localExploit,privEscalation),execCode(fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0003',serverApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(1,rule_desc('local exploit',1.0),execCode(fileServers_host_9,root),[vulExists(fileServers_host_9,'CVE-2016-0011',clientApplication,localExploit,privEscalation),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(dmz_host_10_victim),[execCode(dmz_host_10,user),hasAccount(dmz_host_10_victim,dmz_host_10,user)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_9_victim),[execCode(fileServers_host_9,user),hasAccount(fileServers_host_9_victim,fileServers_host_9,user)])).
+
+possible_duplicate_trace_step(because(12,rule_desc('password sniffing',0.80000000000000004),principalCompromised(fileServers_host_10_victim),[execCode(fileServers_host_10,user),hasAccount(fileServers_host_10_victim,fileServers_host_10,user)])).
+
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_10,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_10,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_10),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(fileServers_host_9,httpProtocol,httpPort),[hacl(fileServers_host_9,fileServers_host_9,httpProtocol,httpPort),advances(fileServers_host_9,fileServers_host_9),execCode(fileServers_host_9,root)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(dmz_host_10,user),[canAccessHost(dmz_host_10),hasAccount(dmz_host_10_victim,dmz_host_10,user),principalCompromised(dmz_host_10_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_9,user),[canAccessHost(fileServers_host_9),hasAccount(fileServers_host_9_victim,fileServers_host_9,user),principalCompromised(fileServers_host_9_victim)])).
+
+possible_duplicate_trace_step(because(0,rule_desc('When a principal is compromised any machine he has an account on will also be compromised',0.5),execCode(fileServers_host_10,user),[canAccessHost(fileServers_host_10),hasAccount(fileServers_host_10_victim,fileServers_host_10,user),principalCompromised(fileServers_host_10_victim)])).
 
 attack(execCode(workStation_host_10,user)).
 

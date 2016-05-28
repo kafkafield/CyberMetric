@@ -1,0 +1,15 @@
+1,"execCode(workStation,root)","OR",0
+2,"RULE 2 (remote exploit of a server program)","AND",0
+3,"netAccess(workStation,rpc,100005)","OR",0
+4,"RULE 6 (direct network access)","AND",0
+5,"hacl(internet,workStation,rpc,100005)","LEAF",1
+4,5,-1
+6,"attackerLocated(internet)","LEAF",1
+4,6,-1
+3,4,-1
+2,3,-1
+7,"networkServiceInfo(workStation,mountd,rpc,100005,root)","LEAF",1
+2,7,-1
+8,"vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation)","LEAF",1
+2,8,-1
+1,2,-1

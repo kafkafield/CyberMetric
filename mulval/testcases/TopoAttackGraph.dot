@@ -1,7 +1,7 @@
 digraph G {
 t42 [label="historian_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
 t41 [label="subnet2_host_10",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
-t40 [label="internet",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t40 [label="internet",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/internet.jpeg"];
 subgraph cluster_fileServers{
 label="fileServers";
 bgcolor="mintcream";

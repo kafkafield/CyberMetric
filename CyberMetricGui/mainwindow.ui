@@ -35,12 +35,12 @@
        <rect>
         <x>30</x>
         <y>10</y>
-        <width>141</width>
+        <width>201</width>
         <height>32</height>
        </rect>
       </property>
       <property name="text">
-       <string>Generate Graph</string>
+       <string>Generate Attack Graph</string>
       </property>
      </widget>
      <widget class="QScrollArea" name="scrollArea">
@@ -65,6 +65,19 @@
         </rect>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>10</y>
+        <width>251</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Generate Attack Route Graph</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">

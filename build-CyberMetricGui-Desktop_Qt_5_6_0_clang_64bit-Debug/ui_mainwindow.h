@@ -37,6 +37,7 @@ public:
     QPushButton *pushButton;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
+    QPushButton *pushButton_2;
     QWidget *tab_2;
     QMenuBar *menuBar;
     QMenu *menuFile_f;
@@ -61,7 +62,7 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         pushButton = new QPushButton(tab);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(30, 10, 141, 32));
+        pushButton->setGeometry(QRect(30, 10, 201, 32));
         scrollArea = new QScrollArea(tab);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setGeometry(QRect(30, 40, 1120, 850));
@@ -70,6 +71,9 @@ public:
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1118, 848));
         scrollArea->setWidget(scrollAreaWidgetContents);
+        pushButton_2 = new QPushButton(tab);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(250, 10, 251, 32));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
@@ -105,7 +109,8 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "CyberMetric", 0));
         actionNew_n->setText(QApplication::translate("MainWindow", "New&(n)", 0));
         actionOpen_o->setText(QApplication::translate("MainWindow", "Open&(o)", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "Generate Graph", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Generate Attack Graph", 0));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Generate Attack Route Graph", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Attack Graph", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Metric Detail", 0));
         menuFile_f->setTitle(QApplication::translate("MainWindow", "File(f)", 0));

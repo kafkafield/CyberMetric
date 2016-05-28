@@ -54,3 +54,20 @@ void MainWindow::open_file()
     cout << inputPath.toStdString().c_str() << endl;
     cout << outDir.toStdString().c_str() << endl;
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QLabel *imageLabel = new QLabel(this);
+    string env = "cd ~/Documents/test \n source /etc/profile \n source ~/.bash_profile \n ";
+    string mulutilpath = "$MULVALROOT/utils/";
+    string cmd = "graph_gen.sh ~/Documents/test/input.P -v -p";
+    string holeCmd = env + mulutilpath + cmd;
+    system(holeCmd.c_str());
+    QPixmap img1;
+    img1.load("/Users/Saint/Documents/test/TopoGraph.png");
+    imageLabel->setPixmap(img1);
+    imageLabel->resize(img1.width(), img1.height());
+    //cout << img1.width() <<endl<< img1.height() << endl;
+    ui->scrollArea->setWidgetResizable(1);
+    ui->scrollArea->setWidget(imageLabel);
+}

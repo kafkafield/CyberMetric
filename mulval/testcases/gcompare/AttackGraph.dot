@@ -1,0 +1,11 @@
+digraph G {
+t1 [label="1:internet User:0",shape=box];
+t2 [label="2:rpc(internet, workStation)",shape=ellipse];
+t3 [label="3:vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation):0",shape=box];
+t4 [label="4:use_vul(internet, workStation)",shape=ellipse];
+t5 [label="5:execCode(workStation,root):1",shape=box];
+t1 -> t2;
+t2 -> t4;
+t3 -> t4;
+t4 -> t5;
+}

@@ -1,0 +1,13 @@
+attackerLocated(internet).
+attackGoal(execCode(workStation,_)).
+
+hacl(internet, workStation, _, _).
+hacl(H,H,_,_).
+
+/* configuration information of fileServer */
+networkServiceInfo(workStation, mountd, rpc, 100005, root).
+nfsExportInfo(workStation, '/export', _anyAccess, workStation).
+nfsExportInfo(workStation, '/export', _anyAccess, webServer).
+vulExists(workStation, 'CVE-2002-0382', mountd).
+vulProperty('CVE-2002-0382', remoteExploit, privEscalation).
+localFileProtection(workStation, root, _, _).

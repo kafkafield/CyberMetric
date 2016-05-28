@@ -1,0 +1,220 @@
+/*generated through input generator*/
+
+attackerLocated(_).
+
+attackGoal(execCode( _, _)).
+
+hacl(X,Y,_,_):-
+
+	inSubnet(X,S),
+
+	inSubnet(Y,S).
+
+
+
+inSubnet(subnet1_host_1, subnet1).
+
+inSubnet(subnet1_host_2, subnet1).
+
+/*
+
+hasResource(subnet1_host_1, 2).
+
+hasResource(subnet1_host_2, 2).
+
+*/
+
+
+
+setuidProgramInfo(subnet1_host_10, localApplication, root).
+
+vulExists(subnet1_host_1, 'CVE-2016-0036',localApplication).
+
+vulProperty('CVE-2016-0036',localExploit, privEscalation).
+
+cvss('CVE-2016-0036',m).
+
+
+
+vulExists(subnet1_host_2, 'CVE-2016-0002',localApplication).
+
+vulProperty('CVE-2016-0002',localExploit, privEscalation).
+
+cvss('CVE-2016-0002',l).
+
+
+
+inCompetent(subnet1_host_1_victim).
+
+hasAccount(subnet1_host_1_victim, subnet1_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(subnet1_host_1, 'CVE-2016-0012',clientApplication).
+
+vulProperty('CVE-2016-0012', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0012',l).
+
+inSubnet(fileServers_host_1, fileServers).
+
+inSubnet(fileServers_host_2, fileServers).
+
+/*
+
+hasResource(fileServers_host_1, 9).
+
+hasResource(fileServers_host_2, 9).
+
+*/
+
+
+
+inCompetent(fileServers_host_2_victim).
+
+hasAccount(fileServers_host_2_victim, fileServers_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(fileServers_host_2, 'CVE-2016-0008',clientApplication).
+
+vulProperty('CVE-2016-0008', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0008',h).
+
+
+
+networkServiceInfo(fileServers_host_1,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(fileServers_host_1, 'CVE-2016-0011',serverApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+
+inSubnet(workStation_host_1, workStation).
+
+inSubnet(workStation_host_2, workStation).
+
+/*
+
+hasResource(workStation_host_1, 5).
+
+hasResource(workStation_host_2, 5).
+
+*/
+
+
+
+setuidProgramInfo(workStation_host_1, localApplication, root).
+
+vulExists(workStation_host_1, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+vulExists(workStation_host_2, 'CVE-2016-0003',localApplication).
+
+vulProperty('CVE-2016-0003',localExploit, privEscalation).
+
+cvss('CVE-2016-0003',h).
+
+
+
+inCompetent(workStation_host_1_victim).
+
+hasAccount(workStation_host_1_victim, workStation_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(workStation_host_1, 'CVE-2016-0002',clientApplication).
+
+vulProperty('CVE-2016-0002', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0002',l).
+
+
+
+
+inSubnet(dmz_host_1, dmz).
+
+inSubnet(dmz_host_2, dmz).
+
+/*
+
+hasResource(dmz_host_1, 2).
+
+hasResource(dmz_host_2, 2).
+
+*/
+
+
+
+setuidProgramInfo(dmz_host_1, localApplication, root).
+
+vulExists(dmz_host_1, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+inCompetent(dmz_host_1_victim).
+
+hasAccount(dmz_host_1_victim, dmz_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(dmz_host_1, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+networkServiceInfo(dmz_host_1,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(dmz_host_1, 'CVE-2016-0011',serverApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+hacl(fileServers_host_1, internet, httpProtocol, httpPort).
+
+hacl(internet, fileServers_host_1, httpProtocol, httpPort).
+
+hacl(fileServers_host_1, workStation_host_1, httpProtocol, httpPort).
+
+hacl(workStation_host_1, fileServers_host_1, httpProtocol, httpPort).
+
+hacl(subnet1_host_2, internet, httpProtocol, httpPort).
+
+hacl(internet, subnet1_host_2, httpProtocol, httpPort).
+
+hacl(subnet2_host_2, internet, httpProtocol, httpPort).
+
+hacl(internet, subnet2_host_2, httpProtocol, httpPort).
+
+hacl(dmz_host_1, internet, httpProtocol, httpPort).
+
+hacl(internet, dmz_host_1, httpProtocol, httpPort).
+
+hacl(historian_host, dmz_host_1, httpProtocol, httpPort).
+
+hacl(dmz_host_1, historian_host, httpProtocol, httpPort).
+
+hacl(historian_host, dmz_host_1, nfsProtocol, nfsPort).
+
+hacl(dmz_host_1, historian_host, nfsProtocol, nfsPort).
+

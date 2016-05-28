@@ -1,0 +1,755 @@
+/*generated through input generator*/
+
+attackerLocated(_).
+
+attackGoal(execCode( _, _)).
+
+hacl(X,Y,_,_):-
+
+	inSubnet(X,S),
+
+	inSubnet(Y,S).
+
+
+
+inSubnet(subnet1_host_1, subnet1).
+
+inSubnet(subnet1_host_2, subnet1).
+
+inSubnet(subnet1_host_3, subnet1).
+
+inSubnet(subnet1_host_4, subnet1).
+
+inSubnet(subnet1_host_5, subnet1).
+
+inSubnet(subnet1_host_6, subnet1).
+
+inSubnet(subnet1_host_7, subnet1).
+
+inSubnet(subnet1_host_8, subnet1).
+
+inSubnet(subnet1_host_9, subnet1).
+
+inSubnet(subnet1_host_10, subnet1).
+
+/*
+
+hasResource(subnet1_host_1, 2).
+
+hasResource(subnet1_host_2, 2).
+
+hasResource(subnet1_host_3, 2).
+
+hasResource(subnet1_host_4, 2).
+
+hasResource(subnet1_host_5, 2).
+
+hasResource(subnet1_host_6, 2).
+
+hasResource(subnet1_host_7, 2).
+
+hasResource(subnet1_host_8, 2).
+
+hasResource(subnet1_host_9, 2).
+
+hasResource(subnet1_host_10, 2).
+
+*/
+
+networkServiceInfo(subnet1_host_10,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(subnet1_host_10, 'CVE-2016-0011',serverApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+networkServiceInfo(subnet1_host_9,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(subnet1_host_9, 'CVE-2016-0003',serverApplication).
+
+vulProperty('CVE-2016-0003', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0003',m).
+networkServiceInfo(subnet1_host_8,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(subnet1_host_8, 'CVE-2016-0003',serverApplication).
+
+vulProperty('CVE-2016-0003', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0003',m).
+networkServiceInfo(subnet1_host_7,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(subnet1_host_7, 'CVE-2016-0003',serverApplication).
+
+vulProperty('CVE-2016-0003', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0003',m).
+networkServiceInfo(subnet1_host_6,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(subnet1_host_6, 'CVE-2016-0003',serverApplication).
+
+vulProperty('CVE-2016-0003', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0003',m).
+
+
+setuidProgramInfo(subnet1_host_10, localApplication, root).
+
+vulExists(subnet1_host_10, 'CVE-2016-0036',localApplication).
+
+vulProperty('CVE-2016-0036',localExploit, privEscalation).
+
+cvss('CVE-2016-0036',m).
+
+
+
+vulExists(subnet1_host_10, 'CVE-2016-0008',localApplication).
+
+vulProperty('CVE-2016-0008',localExploit, privEscalation).
+
+cvss('CVE-2016-0008',l).
+
+
+
+vulExists(subnet1_host_10, 'CVE-2016-0008',serverApplication).
+
+vulProperty('CVE-2016-0008',remoteExploit, privEscalation).
+
+cvss('CVE-2016-0008',l).
+
+
+/*
+inCompetent(subnet1_host_10_victim).
+
+hasAccount(subnet1_host_10_victim, subnet1_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(subnet1_host_10, 'CVE-2016-0012',clientApplication).
+
+vulProperty('CVE-2016-0012', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0012',l).
+*/
+
+
+vulExists(subnet1_host_10, 'CVE-2016-0031',clientApplication).
+
+vulProperty('CVE-2016-0031', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0031',m).
+
+
+
+setuidProgramInfo(subnet1_host_9, localApplication, root).
+
+vulExists(subnet1_host_9, 'CVE-2016-0015',localApplication).
+
+vulProperty('CVE-2016-0015',localExploit, privEscalation).
+
+cvss('CVE-2016-0015',l).
+
+
+
+vulExists(subnet1_host_9, 'CVE-2016-0029',localApplication).
+
+vulProperty('CVE-2016-0029',localExploit, privEscalation).
+
+cvss('CVE-2016-0029',h).
+
+
+
+inCompetent(subnet1_host_9_victim).
+
+hasAccount(subnet1_host_9_victim, subnet1_host_9, user).
+
+isClient(clientApplication).
+
+vulExists(subnet1_host_9, 'CVE-2016-0003',clientApplication).
+
+vulProperty('CVE-2016-0003', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0003',h).
+
+
+
+vulExists(subnet1_host_9, 'CVE-2016-0029',clientApplication).
+
+vulProperty('CVE-2016-0029', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0029',l).
+
+
+
+inSubnet(workStation_host_1, workStation).
+
+inSubnet(workStation_host_2, workStation).
+
+inSubnet(workStation_host_3, workStation).
+
+inSubnet(workStation_host_4, workStation).
+
+inSubnet(workStation_host_5, workStation).
+
+inSubnet(workStation_host_6, workStation).
+
+inSubnet(workStation_host_7, workStation).
+
+inSubnet(workStation_host_8, workStation).
+
+inSubnet(workStation_host_9, workStation).
+
+inSubnet(workStation_host_10, workStation).
+
+/*
+
+hasResource(workStation_host_1, 5).
+
+hasResource(workStation_host_2, 5).
+
+hasResource(workStation_host_3, 5).
+
+hasResource(workStation_host_4, 5).
+
+hasResource(workStation_host_5, 5).
+
+hasResource(workStation_host_6, 5).
+
+hasResource(workStation_host_7, 5).
+
+hasResource(workStation_host_8, 5).
+
+hasResource(workStation_host_9, 5).
+
+hasResource(workStation_host_10, 5).
+
+*/
+
+
+
+setuidProgramInfo(workStation_host_10, localApplication, root).
+
+vulExists(workStation_host_10, 'CVE-2016-0002',localApplication).
+
+vulProperty('CVE-2016-0002',localExploit, privEscalation).
+
+cvss('CVE-2016-0002',h).
+
+
+
+vulExists(workStation_host_10, 'CVE-2016-0003',localApplication).
+
+vulProperty('CVE-2016-0003',localExploit, privEscalation).
+
+cvss('CVE-2016-0003',l).
+
+
+
+inCompetent(workStation_host_10_victim).
+
+hasAccount(workStation_host_10_victim, workStation_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(workStation_host_10, 'CVE-2016-0002',clientApplication).
+
+vulProperty('CVE-2016-0002', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0002',m).
+
+
+
+networkServiceInfo(workStation_host_10,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(workStation_host_10, 'CVE-2016-0038',serverApplication).
+
+vulProperty('CVE-2016-0038', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0038',h).
+
+
+
+vulExists(workStation_host_10, 'CVE-2016-0029',serverApplication).
+
+vulProperty('CVE-2016-0029', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0029',h).
+
+
+
+setuidProgramInfo(workStation_host_9, localApplication, root).
+
+vulExists(workStation_host_9, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+vulExists(workStation_host_9, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+vulExists(workStation_host_9, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+inCompetent(workStation_host_9_victim).
+
+hasAccount(workStation_host_9_victim, workStation_host_9, user).
+
+isClient(clientApplication).
+
+vulExists(workStation_host_9, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+vulExists(workStation_host_9, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+inSubnet(fileServers_host_1, fileServers).
+
+inSubnet(fileServers_host_2, fileServers).
+
+inSubnet(fileServers_host_3, fileServers).
+
+inSubnet(fileServers_host_4, fileServers).
+
+inSubnet(fileServers_host_5, fileServers).
+
+inSubnet(fileServers_host_6, fileServers).
+
+inSubnet(fileServers_host_7, fileServers).
+
+inSubnet(fileServers_host_8, fileServers).
+
+inSubnet(fileServers_host_9, fileServers).
+
+inSubnet(fileServers_host_10, fileServers).
+
+/*
+
+hasResource(fileServers_host_1, 5).
+hasResource(fileServers_host_2, 5).
+hasResource(fileServers_host_3, 5).
+hasResource(fileServers_host_4, 5).
+hasResource(fileServers_host_5, 5).
+hasResource(fileServers_host_6, 5).
+hasResource(fileServers_host_7, 5).
+hasResource(fileServers_host_8, 5).
+hasResource(fileServers_host_9, 5).
+hasResource(fileServers_host_10,5).
+
+*/
+
+
+
+inCompetent(fileServers_host_10_victim).
+
+hasAccount(fileServers_host_10_victim, fileServers_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(fileServers_host_10, 'CVE-2016-0008',clientApplication).
+
+vulProperty('CVE-2016-0008', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0008',h).
+
+
+
+networkServiceInfo(fileServers_host_10,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(fileServers_host_10, 'CVE-2016-0011',serverApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+vulExists(fileServers_host_10, 'CVE-2016-0010',serverApplication).
+
+vulProperty('CVE-2016-0010', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0010',h).
+
+
+
+vulExists(fileServers_host_10, 'CVE-2016-0012',serverApplication).
+
+vulProperty('CVE-2016-0012', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0012',h).
+
+
+
+inCompetent(fileServers_host_9_victim).
+
+hasAccount(fileServers_host_9_victim, fileServers_host_9, user).
+
+isClient(clientApplication).
+
+vulExists(fileServers_host_9, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+vulExists(fileServers_host_9, 'CVE-2016-0014',clientApplication).
+
+vulProperty('CVE-2016-0014', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0014',m).
+
+
+
+networkServiceInfo(fileServers_host_9,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(fileServers_host_9, 'CVE-2016-0003',serverApplication).
+
+vulProperty('CVE-2016-0003', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0003',m).
+
+
+
+vulExists(fileServers_host_9, 'CVE-2016-0007',serverApplication).
+
+vulProperty('CVE-2016-0007', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0007',h).
+
+vulExists(fileServers_host_7, 'CVE-2016-0015',serverApplication).
+
+vulProperty('CVE-2016-0015', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0015',h).
+
+
+inSubnet(workStation_host_1, workStation).
+
+inSubnet(workStation_host_2, workStation).
+
+inSubnet(workStation_host_3, workStation).
+
+inSubnet(workStation_host_4, workStation).
+
+inSubnet(workStation_host_5, workStation).
+
+inSubnet(workStation_host_6, workStation).
+
+inSubnet(workStation_host_7, workStation).
+
+inSubnet(workStation_host_8, workStation).
+
+inSubnet(workStation_host_9, workStation).
+
+inSubnet(workStation_host_10, workStation).
+
+/*
+
+hasResource(workStation_host_1,  9).
+hasResource(workStation_host_2,  9).
+hasResource(workStation_host_3,  9).
+hasResource(workStation_host_4,  9).
+hasResource(workStation_host_5,  9).
+hasResource(workStation_host_6,  9).
+hasResource(workStation_host_7,  9).
+hasResource(workStation_host_8,  9).
+hasResource(workStation_host_9,  9).
+hasResource(workStation_host_10, 9).
+*/
+
+
+
+setuidProgramInfo(workStation_host_10, localApplication, root).
+
+vulExists(workStation_host_10, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+vulExists(workStation_host_10, 'CVE-2016-0003',localApplication).
+
+vulProperty('CVE-2016-0003',localExploit, privEscalation).
+
+cvss('CVE-2016-0003',h).
+
+
+
+inCompetent(workStation_host_10_victim).
+
+hasAccount(workStation_host_10_victim, workStation_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(workStation_host_10, 'CVE-2016-0002',clientApplication).
+
+vulProperty('CVE-2016-0002', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0002',l).
+
+
+
+networkServiceInfo(workStation_host_10,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(workStation_host_10, 'CVE-2016-0009',serverApplication).
+
+vulProperty('CVE-2016-0009', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0009',l).
+
+
+
+vulExists(workStation_host_10, 'CVE-2016-0029',serverApplication).
+
+vulProperty('CVE-2016-0029', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0029',m).
+
+
+
+setuidProgramInfo(workStation_host_9, localApplication, root).
+
+vulExists(workStation_host_9, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+vulExists(workStation_host_9, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+vulExists(workStation_host_9, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+inCompetent(workStation_host_9_victim).
+
+hasAccount(workStation_host_9_victim, workStation_host_9, user).
+
+isClient(clientApplication).
+
+vulExists(workStation_host_9, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+vulExists(workStation_host_9, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+inSubnet(dmz_host_1, dmz).
+
+inSubnet(dmz_host_2, dmz).
+
+inSubnet(dmz_host_3, dmz).
+
+inSubnet(dmz_host_4, dmz).
+
+inSubnet(dmz_host_5, dmz).
+
+inSubnet(dmz_host_6, dmz).
+
+inSubnet(dmz_host_7, dmz).
+
+inSubnet(dmz_host_8, dmz).
+
+inSubnet(dmz_host_9, dmz).
+
+inSubnet(dmz_host_10, dmz).
+
+/*
+
+hasResource(dmz_host_1,  2).
+hasResource(dmz_host_2,  2).
+hasResource(dmz_host_3,  2).
+hasResource(dmz_host_4,  2).
+hasResource(dmz_host_5,  2).
+hasResource(dmz_host_6,  2).
+hasResource(dmz_host_7,  2).
+hasResource(dmz_host_8,  2).
+hasResource(dmz_host_9,  2).
+hasResource(dmz_host_10, 2).
+
+*/
+
+
+
+setuidProgramInfo(dmz_host_10, localApplication, root).
+
+vulExists(dmz_host_10, 'CVE-2016-0011',localApplication).
+
+vulProperty('CVE-2016-0011',localExploit, privEscalation).
+
+cvss('CVE-2016-0011',m).
+
+
+
+inCompetent(dmz_host_10_victim).
+
+hasAccount(dmz_host_10_victim, dmz_host_10, user).
+
+isClient(clientApplication).
+
+vulExists(dmz_host_10, 'CVE-2016-0011',clientApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',h).
+
+
+
+networkServiceInfo(dmz_host_10,serverApplication,httpProtocol, httpPort,user).
+
+vulExists(dmz_host_10, 'CVE-2016-0011',serverApplication).
+
+vulProperty('CVE-2016-0011', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0011',l).
+
+
+
+vulExists(dmz_host_10, 'CVE-2016-0012',serverApplication).
+
+vulProperty('CVE-2016-0012', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0012',l).
+
+
+
+vulExists(dmz_host_10, 'CVE-2016-0022',serverApplication).
+
+vulProperty('CVE-2016-0022', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0022',l).
+
+
+
+vulExists(dmz_host_10, 'CVE-2016-0029',serverApplication).
+
+vulProperty('CVE-2016-0029', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0029',l).
+
+
+
+setuidProgramInfo(dmz_host_9, localApplication, root).
+
+vulExists(dmz_host_9, 'CVE-2016-0035',localApplication).
+
+vulProperty('CVE-2016-0035',localExploit, privEscalation).
+
+cvss('CVE-2016-0035',l).
+
+
+
+inCompetent(dmz_host_9_victim).
+
+hasAccount(dmz_host_9_victim, dmz_host_9, user).
+
+isClient(clientApplication).
+
+vulExists(dmz_host_9, 'CVE-2016-0002',clientApplication).
+
+vulProperty('CVE-2016-0002', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0002',m).
+
+
+
+vulExists(dmz_host_9, 'CVE-2016-0036',clientApplication).
+
+vulProperty('CVE-2016-0036', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0036',h).
+
+
+
+vulExists(dmz_host_9, 'CVE-2016-0008',clientApplication).
+
+vulProperty('CVE-2016-0008', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0008',h).
+
+
+
+vulExists(dmz_host_9, 'CVE-2016-0010',clientApplication).
+
+vulProperty('CVE-2016-0010', remoteExploit, privEscalation).
+
+cvss('CVE-2016-0010',h).
+
+
+
+hacl(fileServers_host_10, internet, httpProtocol, httpPort).
+
+hacl(internet, fileServers_host_10, httpProtocol, httpPort).
+
+hacl(fileServers_host_10, workStation_host_10, httpProtocol, httpPort).
+
+hacl(workStation_host_10, fileServers_host_10, httpProtocol, httpPort).
+
+hacl(subnet1_host_10, internet, httpProtocol, httpPort).
+
+hacl(internet, subnet1_host_10, httpProtocol, httpPort).
+
+hacl(subnet2_host_10, internet, httpProtocol, httpPort).
+
+hacl(internet, subnet2_host_10, httpProtocol, httpPort).
+
+hacl(dmz_host_10, internet, httpProtocol, httpPort).
+
+hacl(internet, dmz_host_10, httpProtocol, httpPort).
+
+hacl(historian_host_10, dmz_host_10, httpProtocol, httpPort).
+
+hacl(dmz_host_10, historian_host_10, httpProtocol, httpPort).
+
+hacl(historian_host_10, dmz_host_10, nfsProtocol, nfsPort).
+
+hacl(dmz_host_10, historian_host_10, nfsProtocol, nfsPort).
+

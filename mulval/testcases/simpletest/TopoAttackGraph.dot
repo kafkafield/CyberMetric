@@ -1,0 +1,37 @@
+digraph G {
+t9 [label="subnet2_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t10 [label="historian_host",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t8 [label="internet",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/internet.jpeg"];
+subgraph cluster_fileServers{
+label="fileServers";
+bgcolor="mintcream";
+t2 [label="fileServers_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t3 [label="fileServers_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+subgraph cluster_workStation{
+label="workStation";
+bgcolor="mintcream";
+t4 [label="workStation_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t5 [label="workStation_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+subgraph cluster_subnet1{
+label="subnet1";
+bgcolor="mintcream";
+t0 [label="subnet1_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t1 [label="subnet1_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+subgraph cluster_dmz{
+label="dmz";
+bgcolor="mintcream";
+t6 [label="dmz_host_1",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+t7 [label="dmz_host_2",shape=none,image="/Users/Saint/Code/CyberMetric/mulval/img/server.jpeg"];
+}
+t4 -> t2;
+t10 -> t6;
+t8 -> t6;
+t8 -> t2;
+t6 -> t6;
+t7 -> t6;
+t2 -> t2;
+t3 -> t2;
+}
