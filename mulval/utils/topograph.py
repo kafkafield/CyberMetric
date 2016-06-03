@@ -167,7 +167,7 @@ def getSubnet():
 		if match2:
 			p3 = match2.groups()[0]
 			subnetId = match2.groups()[1]
-			print subnetId
+			#print subnetId
 			if subnetId not in subnet.keys():
 				subnet[subnetId] = []
 			if p3 not in subnet[subnetId]:
@@ -181,18 +181,20 @@ def getSubnet():
 	for i in withoutnet.keys():
 		pointDict[i].subnet = 'NONE'
 
-def computeVerticeImportance(subnetName):
+def computeVerticeImportanceSubnet(subnetName):
 	buildVertices()
 	buildConnectionOrigin()
 	getSubnet()
 	getAllConnection()
-	b = len(subnet[subnetName])
+	tarSubnet = subnet[subnetName]
+	b = len(tarSubnet)
 	importance = [0 for i in range(b)]
 	narray = [[0x3f3f3f3f for i in range(b)] for i in range(b)]
-	for key in Subnet[subnetName]:
+	for key in tarSubnet:
 		for key2 in pointDict[key].link:
+			if pointDict[key2].subnet == subnetName:
 			#print pointDict[key2].id, pointDict[key].id
-			narray[pointDict[key2].id][pointDict[key].id] = narray[pointDict[key].id][pointDict[key2].id] = 1
+				narray[tarSubnet.index(key)][tarSubnet.index(key2)] = narray[tarSubnet.index(key2)][tarSubnet.index(key)] = 1
 	#print narray
 	distance = computeDistance(narray)
 	#print distance
@@ -212,6 +214,54 @@ def computeVerticeImportance(subnetName):
 	#print importance
 	return importance
 	#print narray
+
+def importanceMetricSubnet(subnetName, importance):
+	tarSubnet = subnet[subnetName]
+	importance = importance / distance(importance)
+	#print importance
+	#testD(importance)
+	getAllVun()
+	#print vunInfo
+	for i in range(len(importance)):
+		impact = 0
+		if tarSubnet[i] in vunInfo.keys():
+			for k in vunInfo[i]:
+				#print k
+				vulData = getVulInfo(k)
+				#print vulData
+				loss, poss = calcVunPoss(vulData)
+				#print loss
+				impact = impact + loss
+				if i == 29:
+					print loss
+		if impact > 10:
+			impact = 10
+		#print impact
+		importance[i] = pow(importance[i],2) * impact
+	metric = 0
+	for a in importance:
+		metric = metric + a
+	print metric
+	return metric
+
+def importanceMetricHost(nodeName):
+	getAllVun()
+	impact = 0
+	if nodeName in vunInfo.keys():
+		for k in vunInfo[i]:
+				#print k
+				vulData = getVulInfo(k)
+				#print vulData
+				loss, poss = calcVunPoss(vulData)
+				#print loss
+				impact = impact + loss
+				if i == 29:
+					print loss
+	if impact > 10:
+		impact = 10
+	metric = impact
+	print metric
+	return metric
 
 def computeVerticeImportance():
 	buildVertices()
@@ -309,7 +359,7 @@ def importanceMetric(importance):
 	return metric
 
 def computeDistance(narray):
-	l = len(pointDict.keys())
+	l = len(narray)
 	distance = [[0x3f3f3f3f for i in range(l)] for i in range(l)]
 	distance = copy.deepcopy(narray)
 	#print distance
@@ -457,7 +507,7 @@ def cycleMetricSubnet(subnetName):
 	return metric
 
 def cycleMetricHost(pointName):
-	metric = convMetric(pointName)
+	metric = convMetricHost(pointName)
 	print metric
 	return metric
 
@@ -658,7 +708,7 @@ def calcPossbility():
 	print metricP
 	return metricP
 
-def metricSubnet(node, key, used, subnetName):
+def pMetricSubnet(node, key, used, subnetName):
 	used[key] = 1
 	if(node.prob!=-1):
 		return node.prob
@@ -714,7 +764,7 @@ def poMetricSubnet(subnetName):
 		temp, tempKey=fetchNoProb()
 		if temp is None:
 			break
-		temp.prob=metricSubnet(temp, tempKey, used, subnetName)
+		temp.prob=pMetricSubnet(temp, tempKey, used, subnetName)
 
 	arrLoss = array(impactLoss)
 	arrPoss = array(impactPoss)
@@ -730,7 +780,7 @@ def poMetricSubnet(subnetName):
 	print metricP
 	return metricP
 
-def metricHost(node, key, used, hostName):
+def pMetricHost(node, key, used, hostName):
 	used[key] = 1
 	if(node.prob!=-1):
 		return node.prob
@@ -786,7 +836,7 @@ def poMetricHost(hostName):
 		temp, tempKey=fetchNoProb()
 		if temp is None:
 			break
-		temp.prob=metricHost(temp, tempKey, used, hostName)
+		temp.prob=pMetricHost(temp, tempKey, used, hostName)
 
 	arrLoss = array(impactLoss)
 	arrPoss = array(impactPoss)
@@ -988,6 +1038,109 @@ def findAttackLocated():
 			located.append(i)
 	return located
 
+def deepReMetricSubnet(subnetName):
+	depth = [0 for i in range(len(pointDict))]
+	searchlist = Queue.Queue(2000)
+	reImportance = [0 for i in range(len(pointDict))]
+	readVertices()
+	located = findAttackLocated()
+	for init in located:
+		used = {}
+		#print init
+		temp = {}
+		temp[init] = 0
+		used[init] = 1
+		searchlist.put(init)
+		while not searchlist.empty():
+			a = searchlist.get()
+			#print a
+			step = temp[a] + 1
+			#print verticeSet[a].list2
+			for i in verticeSet[a].list2:
+				#print a
+				#print i
+				if not i in used.keys():
+					temp[i] = step
+					searchlist.put(i)
+					#if i == 378:
+					#	print 'nihao '
+					pattern = re.compile(r'.*\((.*)\).*')
+					if verticeSet[i].status == 'OR':
+						#print verticeSet[i].exet
+						match = pattern.search(verticeSet[i].exet)
+						if match:
+							host = match.groups()[0].split(',')[0]
+							depth[pointDict[host].id] = 1/float(temp[i])
+					used[i] = 1
+	#print depth
+	depth = depth / distance(depth)
+	getResource()
+	fixResource()
+	reImportance = [0 for i in range(len(pointDict))]
+	temp = {}
+	for i in pointDict.keys():
+		reImportance[pointDict[i].id] = pointDict[i].resource
+	#reImportance = reImportance / distance(reImportance)
+	#print reImportance
+	metric = 0
+	#print reImportance
+	#print depth
+	for i in subnet[subnetName]:
+		metric = metric + pow(depth[pointDict[i].id], 2) * reImportance[pointDict[i].id]
+	print metric
+	return metric
+
+def deepReMetricHost(hostName):
+	depth = [0 for i in range(len(pointDict))]
+	searchlist = Queue.Queue(2000)
+	reImportance = [0 for i in range(len(pointDict))]
+	readVertices()
+	located = findAttackLocated()
+	for init in located:
+		used = {}
+		#print init
+		temp = {}
+		temp[init] = 0
+		used[init] = 1
+		searchlist.put(init)
+		while not searchlist.empty():
+			a = searchlist.get()
+			#print a
+			step = temp[a] + 1
+			#print verticeSet[a].list2
+			for i in verticeSet[a].list2:
+				#print a
+				#print i
+				if not i in used.keys():
+					temp[i] = step
+					searchlist.put(i)
+					#if i == 378:
+					#	print 'nihao '
+					pattern = re.compile(r'.*\((.*)\).*')
+					if verticeSet[i].status == 'OR':
+						#print verticeSet[i].exet
+						match = pattern.search(verticeSet[i].exet)
+						if match:
+							host = match.groups()[0].split(',')[0]
+							depth[pointDict[host].id] = 1/float(temp[i])
+					used[i] = 1
+	#print depth
+	depth = depth / distance(depth)
+	getResource()
+	fixResource()
+	reImportance = [0 for i in range(len(pointDict))]
+	temp = {}
+	for i in pointDict.keys():
+		reImportance[pointDict[i].id] = pointDict[i].resource
+	#reImportance = reImportance / distance(reImportance)
+	#print reImportance
+	metric = 0
+	#print reImportance
+	#print depth
+	metric = metric + pow(depth[pointDict[hostName].id], 2) * reImportance[pointDict[hostName].id]
+	print metric
+	return metric
+
 def deepReMetric():
 	depth = [0 for i in range(len(pointDict))]
 	searchlist = Queue.Queue(2000)
@@ -1088,8 +1241,8 @@ def cMetric():
 
 def cMetricSubnet(subnetName):
 	a = 0.0
-	b = len(Subnet[subnetName])
-	for i in Subnet[subnetName]:
+	b = len(subnet[subnetName])
+	for i in subnet[subnetName]:
 		if len(pointDict[i].link2) > 0:
 			a = a + 1
 	metric = 10 * a / b
@@ -1111,6 +1264,31 @@ def metricHost(hostName):
 	getSubnet()
 	printDot("TopoAttackGraph")
 
+	Mw = convMetricHost(hostName)
+	Ms = cycleMetricHost(hostName)
+
+	Mr = reVulMetricHost(hostName)
+	Md = deepReMetricHost(hostName)
+
+	importance = computeVerticeImportance()
+	Mp = poMetricHost(hostName)
+	Mi = importanceMetricHost(hostName)
+
+	Mo = outInMetricHost(hostName)
+	Mc = cMetricHost(hostName)
+
+	metricResult = [[0 for i in range(2)] for i in range(4)]
+	metricResult[0][0] = Mw
+	metricResult[0][1] = Ms
+	metricResult[1][0] = Mr
+	metricResult[1][1] = Md
+	metricResult[2][0] = Mp
+	metricResult[2][1] = Mi
+	metricResult[3][0] = Mo
+	metricResult[3][1] = Mc
+
+	return metricResult
+
 def metricSubnet(subnetName):
 	buildVertices()
 	buildConnection()
@@ -1120,11 +1298,26 @@ def metricSubnet(subnetName):
 	Ms = cycleMetricSubnet(subnetName)
 
 	Mr = reVulMetricSubnet(subnetName)
+	Md = deepReMetricSubnet(subnetName)
 
+	importance = computeVerticeImportanceSubnet(subnetName)
 	Mp = poMetricSubnet(subnetName)
+	Mi = importanceMetricSubnet(subnetName, importance)
 
-	Mo = outInMetric(subnetName)
-	Md = deepReMetric(subnetName)
+	Mo = outInMetricSubnet(subnetName)
+	Mc = cMetricSubnet(subnetName)
+
+	metricResult = [[0 for i in range(2)] for i in range(4)]
+	metricResult[0][0] = Mw
+	metricResult[0][1] = Ms
+	metricResult[1][0] = Mr
+	metricResult[1][1] = Md
+	metricResult[2][0] = Mp
+	metricResult[2][1] = Mi
+	metricResult[3][0] = Mo
+	metricResult[3][1] = Mc
+
+	return metricResult
 
 def metricAll():
 	buildVertices()
@@ -1296,12 +1489,22 @@ def makeDetailPlot(m, filename):
 	plt.savefig(filename+"performance.png")
 	plt.show()
 
+def help():
+	print "------------------------------------------------------------------------"
+	print "             use -g or --global to get global metric result             "
+	print "use -s or --subnet with concrete subnet name to get subnet metric result"
+	print "    use -o or --host with concrete host name to get host metric result  "
+	print "         use -d or --draw to draw the origin net topology graph         "
+	print "           use -r or --route to draw the attack route graph             "
+	print "------------------------------------------------------------------------"
+
 if __name__ == "__main__":
 	#m = metricAll()
 	#makeplot(m, '3dresult.png')
 	#makeDetailPlot(m, 'h5v1s5')
 	if len(sys.argv) == 1:
 		print "please enter the granularity!"
+		help()
 		exit(0)
 	#getVulInfo('CVE-2003-0012')
 	else:
@@ -1313,24 +1516,30 @@ if __name__ == "__main__":
 		if sys.argv[1] == '-s' or sys.argv[1] == '--subnet':
 			if len(sys.argv) == 2:
 				print "please enter the subnet name!"
+				help()
 				exit(0)
-			metricSubnet(sys.argv[2])
-		if sys.argv[1] == '-h' or sys.argv[1] == '--host':
+			m = metricSubnet(sys.argv[2])
+			print m
+		if sys.argv[1] == '-o' or sys.argv[1] == '--host':
 			if len(sys.argv) == 2:
 				print "please enter the host name!"
+				help()
 				exit(0)
-			metricHost(sys.argv[2])
+			m = metricHost(sys.argv[2])
+			print m
 		if sys.argv[1] == '-d' or sys.argv[1] == '--draw':
 			buildVertices()
 			buildConnectionOrigin()
 			getSubnet()
 			getAllConnection()
 			printDot("originnet")
-		if sys.argv[1] == '-w' or sys.argv[1] == '--wayto':
+		if sys.argv[1] == '-r' or sys.argv[1] == '--route':
 			buildVertices()
 			buildConnection()
 			getSubnet()
 			printDot("TopoAttackGraph")
+		if sys.argv[1] == '-h' or sys.argv[1] == '--help':
+			help()
     #writeCSV()
 
 	#buildVertices()

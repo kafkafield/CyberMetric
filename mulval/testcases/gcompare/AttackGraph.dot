@@ -1,11 +1,17 @@
 digraph G {
-t1 [label="1:internet User:0",shape=box];
-t2 [label="2:rpc(internet, workStation)",shape=ellipse];
-t3 [label="3:vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation):0",shape=box];
-t4 [label="4:use_vul(internet, workStation)",shape=ellipse];
-t5 [label="5:execCode(workStation,root):1",shape=box];
-t1 -> t2;
-t2 -> t4;
-t3 -> t4;
-t4 -> t5;
+t1 [label="1:execCode(workStation,root):0",shape=diamond];
+t2 [label="2:RULE 2 (remote exploit of a server program):0",shape=ellipse];
+t3 [label="3:netAccess(workStation,rpc,100005):0",shape=diamond];
+t4 [label="4:RULE 6 (direct network access):0",shape=ellipse];
+t5 [label="5:hacl(internet,workStation,rpc,100005):1",shape=box];
+t6 [label="6:attackerLocated(internet):1",shape=box];
+t7 [label="7:networkServiceInfo(workStation,mountd,rpc,100005,root):1",shape=box];
+t8 [label="8:vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation):1",shape=box];
+t5 -> t4;
+t6 -> t4;
+t4 -> t3;
+t3 -> t2;
+t7 -> t2;
+t8 -> t2;
+t2 -> t1;
 }

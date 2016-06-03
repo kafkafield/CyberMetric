@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPixmap>
 
 namespace Ui {
 class MainWindow;
@@ -17,12 +18,18 @@ public:
     QString outDir;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QPixmap scaleScroll(QPixmap q);
 
 private slots:
     void on_pushButton_clicked();
+
     void open_file();
 
     void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;

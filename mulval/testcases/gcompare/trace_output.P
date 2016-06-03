@@ -39,35 +39,35 @@ possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAcc
 
 possible_duplicate_trace_step(because(17,rule_desc('NFS shell',0.80000000000000004),accessFile(workStation,write,'/export'),[hacl(workStation,workStation,nfsProtocol,nfsPort),nfsExportInfo(workStation,'/export',write,workStation),execCode(workStation,root)])).
 
-possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h4068),[canAccessFile(workStation,root,write,_h4068),execCode(workStation,root)])).
+possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h4082),[canAccessFile(workStation,root,write,_h4082),execCode(workStation,root)])).
 
 possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation,root),[netAccess(workStation,rpc,100005),networkServiceInfo(workStation,mountd,rpc,100005,root),vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation)])).
 
 possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,'/export')])).
 
-possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,_h4068)])).
+possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,_h4082)])).
 
 possible_duplicate_trace_step(because(5,rule_desc('multi-hop access',0.5),netAccess(workStation,rpc,100005),[hacl(workStation,workStation,rpc,100005),advances(workStation,workStation),execCode(workStation,root)])).
 
 possible_duplicate_trace_step(because(17,rule_desc('NFS shell',0.80000000000000004),accessFile(workStation,write,'/export'),[hacl(workStation,workStation,nfsProtocol,nfsPort),nfsExportInfo(workStation,'/export',write,workStation),execCode(workStation,root)])).
 
-possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h4068),[canAccessFile(workStation,root,write,_h4068),execCode(workStation,root)])).
+possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h4082),[canAccessFile(workStation,root,write,_h4082),execCode(workStation,root)])).
 
 possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation,root),[netAccess(workStation,rpc,100005),networkServiceInfo(workStation,mountd,rpc,100005,root),vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation)])).
 
 possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation,root),[netAccess(workStation,rpc,100005),networkServiceInfo(workStation,mountd,rpc,100005,root),vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation)])).
 
-possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h3821),[canAccessFile(workStation,root,write,_h3821),execCode(workStation,root)])).
+possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h3885),[canAccessFile(workStation,root,write,_h3885),execCode(workStation,root)])).
 
 possible_duplicate_trace_step(because(17,rule_desc('NFS shell',0.80000000000000004),accessFile(workStation,write,'/export'),[hacl(workStation,workStation,nfsProtocol,nfsPort),nfsExportInfo(workStation,'/export',write,workStation),execCode(workStation,root)])).
 
 possible_duplicate_trace_step(because(17,rule_desc('NFS shell',0.80000000000000004),accessFile(workStation,write,'/export'),[hacl(workStation,workStation,nfsProtocol,nfsPort),nfsExportInfo(workStation,'/export',write,workStation),execCode(workStation,root)])).
 
-possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,_h3821)])).
+possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,_h3885)])).
 
 possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,'/export')])).
 
-possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h3821),[canAccessFile(workStation,root,write,_h3821),execCode(workStation,root)])).
+possible_duplicate_trace_step(because(10,rule_desc('execCode implies file access',1.0),accessFile(workStation,write,_h3885),[canAccessFile(workStation,root,write,_h3885),execCode(workStation,root)])).
 
 possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server program',1.0),execCode(workStation,root),[netAccess(workStation,rpc,100005),networkServiceInfo(workStation,mountd,rpc,100005,root),vulExists(workStation,'CVE-2002-0382',mountd,remoteExploit,privEscalation)])).
 
@@ -75,5 +75,5 @@ possible_duplicate_trace_step(because(2,rule_desc('remote exploit of a server pr
 
 possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,'/export')])).
 
-possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,_h3671)])).
+possible_duplicate_trace_step(because(4,rule_desc('Trojan horse installation',0.80000000000000004),execCode(workStation,root),[accessFile(workStation,write,_h3672)])).
 

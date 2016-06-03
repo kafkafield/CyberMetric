@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1240</width>
+    <width>1740</width>
     <height>1080</height>
    </rect>
   </property>
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-30</y>
-      <width>1280</width>
-      <height>1000</height>
+      <y>0</y>
+      <width>1690</width>
+      <height>1100</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -30,10 +30,23 @@
      <attribute name="title">
       <string>Attack Graph</string>
      </attribute>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>10</y>
+        <width>251</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Generate Net Topology Graph</string>
+      </property>
+     </widget>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>10</x>
         <y>10</y>
         <width>201</width>
         <height>32</height>
@@ -43,13 +56,26 @@
        <string>Generate Attack Graph</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>10</y>
+        <width>251</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Generate Attack Route Graph</string>
+      </property>
+     </widget>
      <widget class="QScrollArea" name="scrollArea">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>40</y>
-        <width>1120</width>
-        <height>850</height>
+        <x>20</x>
+        <y>50</y>
+        <width>1640</width>
+        <height>800</height>
        </rect>
       </property>
       <property name="widgetResizable">
@@ -60,30 +86,108 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1118</width>
-         <height>848</height>
+         <width>1638</width>
+         <height>798</height>
         </rect>
        </property>
       </widget>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>10</y>
-        <width>251</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Generate Attack Route Graph</string>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Metric Detail</string>
      </attribute>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>510</y>
+        <width>540</width>
+        <height>405</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>1100</x>
+        <y>480</y>
+        <width>400</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Global Metric</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>480</y>
+        <width>400</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>70</y>
+        <width>540</width>
+        <height>405</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>70</y>
+        <width>400</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>1100</x>
+        <y>70</y>
+        <width>400</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -92,7 +196,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1240</width>
+     <width>1740</width>
      <height>22</height>
     </rect>
    </property>

@@ -1,5 +1,5 @@
 attackerLocated(internet).
-attackGoal(execCode(workStation,_)).
+attackGoal(execCode(_,_)).
 
 hacl(internet, workStation, _, _).
 hacl(H,H,_,_).
