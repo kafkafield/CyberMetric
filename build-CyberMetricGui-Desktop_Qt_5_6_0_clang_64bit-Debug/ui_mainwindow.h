@@ -126,7 +126,6 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile_f->menuAction());
-        menuFile_f->addAction(actionNew_n);
         menuFile_f->addAction(actionOpen_o);
 
         retranslateUi(MainWindow);

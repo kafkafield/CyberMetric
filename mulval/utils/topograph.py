@@ -1492,53 +1492,57 @@ def makeDetailPlot(m, filename):
 def help():
 	print "------------------------------------------------------------------------"
 	print "             use -g or --global to get global metric result             "
-	print "use -s or --subnet with concrete subnet name to get subnet metric result"
-	print "    use -o or --host with concrete host name to get host metric result  "
+	print "use -s or --subnet with specific subnet name to get subnet metric result"
+	print "    use -o or --host with specific host name to get host metric result  "
 	print "         use -d or --draw to draw the origin net topology graph         "
 	print "           use -r or --route to draw the attack route graph             "
 	print "------------------------------------------------------------------------"
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # main函数
 	#m = metricAll()
 	#makeplot(m, '3dresult.png')
 	#makeDetailPlot(m, 'h5v1s5')
-	if len(sys.argv) == 1:
+	if len(sys.argv) == 1: #检测命令行的输入，如果是一个，就提醒继续输入
 		print "please enter the granularity!"
 		help()
 		exit(0)
 	#getVulInfo('CVE-2003-0012')
 	else:
-		if sys.argv[1] == '-g' or sys.argv[1] == '--global':
-			m = metricAll()
+		if sys.argv[1] == '-g' or sys.argv[1] == '--global': #如果输入了－g，就是全网的度量
+			m = metricAll()                                  #m是一个2x4的矩阵，储存着度量结果
 			print m
-			makeplot(m, '3dresult.png')
-			makeDetailPlot(m, 'h5v1s5')
-		if sys.argv[1] == '-s' or sys.argv[1] == '--subnet':
-			if len(sys.argv) == 2:
-				print "please enter the subnet name!"
+			makeplot(m, '3dresult.png')                      #生成3D图的函数
+			makeDetailPlot(m, 'h5v1s5')                      #生成了五张2D的图，其中每个层一张图，最后一张汇总
+		if sys.argv[1] == '-s' or sys.argv[1] == '--subnet': #如果输入了－s，就是子网的度量
+			if len(sys.argv) == 2:                           #如果只输入了2个，说明只输入了程序名称和－s，需要继续输入子网的名称
+				print "please enter the subnet name!"        
 				help()
 				exit(0)
-			m = metricSubnet(sys.argv[2])
-			print m
-		if sys.argv[1] == '-o' or sys.argv[1] == '--host':
-			if len(sys.argv) == 2:
-				print "please enter the host name!"
+			if sys.argv[2] not in subnet.keys():             #如果输入的第三个参数不在子网的键里
+				print "please enter a right subnet name!"       
 				help()
 				exit(0)
-			m = metricHost(sys.argv[2])
+			m = metricSubnet(sys.argv[2])                    #子网的度量函数
 			print m
-		if sys.argv[1] == '-d' or sys.argv[1] == '--draw':
-			buildVertices()
-			buildConnectionOrigin()
-			getSubnet()
-			getAllConnection()
+		if sys.argv[1] == '-o' or sys.argv[1] == '--host':   #输入的参数是－o等，表示对节点的度量
+			if len(sys.argv) == 2:
+				print "please enter the host name!"        
+				help()
+				exit(0)
+			m = metricHost(sys.argv[2])                      #对节点进行度量
+			print m
+		if sys.argv[1] == '-d' or sys.argv[1] == '--draw':   #－d 把网络的拓扑图画出来
+			buildVertices()                                  #把文本内的所有的节点读进来
+			buildConnectionOrigin()                          #获取子网之间的边
+			getSubnet()                                      #获得所有的子网内的边
+			getAllConnection()                               #生成子网内的边
 			printDot("originnet")
-		if sys.argv[1] == '-r' or sys.argv[1] == '--route':
-			buildVertices()
-			buildConnection()
-			getSubnet()
-			printDot("TopoAttackGraph")
-		if sys.argv[1] == '-h' or sys.argv[1] == '--help':
+		if sys.argv[1] == '-r' or sys.argv[1] == '--route':  #攻击路径示意图
+			buildVertices()                                  
+			buildConnection()                                #连接攻击路径
+			getSubnet()                                      #获得子网内的信息
+			printDot("TopoAttackGraph")        
+		if sys.argv[1] == '-h' or sys.argv[1] == '--help':   #help函数
 			help()
     #writeCSV()
 

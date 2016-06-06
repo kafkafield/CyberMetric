@@ -204,7 +204,6 @@
     <property name="title">
      <string>File(f)</string>
     </property>
-    <addaction name="actionNew_n"/>
     <addaction name="actionOpen_o"/>
    </widget>
    <addaction name="menuFile_f"/>
